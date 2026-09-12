@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Joe Amerika’yı Geçiyor</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root {
+--bg: #fbfaf8; 
+--fg: #1f2328; 
+--heading: #10141a; 
+--muted: #5b6570; 
+--accent: #0b6bcb; 
+--note: #b8860b; 
+--code-bg: #f1efea; 
+--rule: #e2ded6; 
+--grup-a: #ece4f8; 
+--grup-b: #f7edda; 
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--bg: #16181d;
+--fg: #d7dae0;
+--heading: #f0f2f5;
+--muted: #9aa3ad;
+--accent: #6cb6ff;
+--note: #e3b341;
+--code-bg: #1e2128;
+--rule: #2c3038;
+--grup-a: #3a2f4a;
+--grup-b: #403626;
+}
+}
+html { background: var(--bg); }
+body {
+background: var(--bg);
+color: var(--fg);
+max-width: 52em; 
+margin: 0 auto;
+padding: 2.5rem 1.4rem 6rem;
+font: 16px/1.65 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+}
+h1, h2, h3, h4 { color: var(--heading); line-height: 1.25; }
+h1 { font-size: 2rem; margin-bottom: .2em; }
+h2 { font-size: 1.4rem; margin-top: 2.4em; padding-bottom: .25em; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.1rem; color: var(--muted); font-weight: 600; margin-top: .3em; }
+a { color: var(--accent); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+
+pre {
+background: var(--code-bg);
+border: 1px solid var(--rule);
+border-radius: 6px;
+padding: .85rem 1rem;
+overflow-x: auto;
+line-height: 1.35;
+font-size: .86rem;
+}
+code { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
+p > code, li > code, td > code {
+background: var(--code-bg);
+padding: .12em .35em;
+border-radius: 4px;
+font-size: .9em;
+}
+
+blockquote {
+margin: 1.5em 0;
+padding: .1rem 1.1rem;
+border-left: 3px solid var(--note);
+color: var(--fg);
+background: color-mix(in srgb, var(--note) 7%, transparent);
+border-radius: 0 6px 6px 0;
+}
+blockquote pre { background: var(--bg); }
+
+details {
+margin: 1.4em 0;
+padding: .3rem 1rem;
+border: 1px solid var(--rule);
+border-left: 3px solid var(--accent);
+border-radius: 0 6px 6px 0;
+background: color-mix(in srgb, var(--accent) 4%, transparent);
+}
+summary { cursor: pointer; padding: .5rem 0; color: var(--heading); }
+summary:hover { color: var(--accent); }
+table { border-collapse: collapse; margin: 1.4em 0; }
+th, td { border: 1px solid var(--rule); padding: .45rem .8rem; text-align: left; }
+th { background: var(--code-bg); }
+img {
+display: block; margin: 1.6em auto;
+max-width: 100%; height: auto; 
+border: 1px solid var(--rule); border-radius: 4px;
+}
+
+svg.figure { display: block; margin: 1.6em auto; max-width: 100%; height: auto; }
+
+.tahta {
+margin: 1.6em 0;
+padding: .9rem 1.1rem 1rem;
+background: #1c2431;
+color: #e6e9ee;
+border: 1px solid #2f3b4d;
+border-radius: 8px;
+}
+.tahta-baslik {
+font-size: .78rem;
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #9fb0c6;
+margin-bottom: .55rem;
+}
+.tahta pre {
+margin: 0; padding: 0;
+background: transparent; border: 0;
+color: inherit;
+line-height: 1.4;
+}
+.tahta mark {
+color: #ffd866;
+background: rgba(255, 216, 102, .14);
+font-weight: 700;
+border-radius: .2em;
+padding: 0 .2em;
+}
+@media print {
+.tahta { background: #fff; color: #000; border-color: #999; }
+.tahta-baslik { color: #444; }
+.tahta mark { color: #000; background: #eee; }
+}
+#TOC { font-size: .92rem; }
+#TOC a { text-decoration: none; }
+@media print {
+:root { --bg: #fff; --fg: #000; --code-bg: #f4f4f4; }
+details { border-left-color: #999; }
+details > *:not(summary) { display: block; } 
+}
+
+.kazanan {
+color: var(--accent);
+font-weight: 700;
+background: color-mix(in srgb, var(--accent) 12%, transparent);
+padding: .1em .35em;
+border-radius: .25em;
+}
+@media print { .kazanan { background: #eee; color: #000; } }
+
+td.ozet { text-align: center; vertical-align: middle; }
+
+td.grup-a { background: var(--grup-a); }
+td.grup-b { background: var(--grup-b); }
+@media print {
+td.grup-a { background: #eee; }
+td.grup-b { background: #fafafa; }
+}
+</style>
+</head>
+<body>
+<!--
+  ===========================================================================
+  BU DOSYA ÜRETİLMİŞTİR — elle düzenleme bir sonraki derlemede kaybolur.
+  Kaynağı: aynı adı taşıyan .md dosyası (bu klasörde).
+
+  DERLEMEK İÇİN:
+
+      ./build.sh                          klasördeki bütün handout'ları
+      ./build.sh 01_inventory_for_newbeas.md    yalnız birini
+
+  Elle derlemek istersen — komut BU KLASÖRÜN İÇİNDEN çalıştırılmalı, çünkü
+  resimler ../slides/small/ altında ve pandoc göreli yolları çalışma dizinine
+  göre çözüyor (üst klasörden çalıştırırsan sessizce resimsiz HTML üretir):
+
+      pandoc <dosya>.md -s --embed-resources --toc \
+             --css newbeas.css -B .buildnote.html -o <dosya>.html
+
+  Başlık ve alt başlık .md'nin YAML başlığından geliyor (title:, subtitle:),
+  o yüzden komutta --metadata title=... yok.
+  ===========================================================================
+-->
+<header id="title-block-header">
+<h1 class="title">Joe Amerika’yı Geçiyor</h1>
+<p class="subtitle">En kısa yolu bulmanın akıllı yolu</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">İçindekiler</h2>
+<ul>
+<li><a href="#önce-bir-dakikalık-ısınma" id="toc-önce-bir-dakikalık-ısınma">0. Önce bir dakikalık ısınma</a></li>
+<li><a href="#asıl-problem" id="toc-asıl-problem">1. Asıl
+problem</a></li>
+<li><a href="#hepsini-deneriz-olur-biter" id="toc-hepsini-deneriz-olur-biter">2. “Hepsini deneriz olur
+biter”</a></li>
+<li><a href="#büyük-fikir-sondan-başla" id="toc-büyük-fikir-sondan-başla">3. Büyük fikir: sondan başla</a></li>
+<li><a href="#gösterim-sadece-iki-sembol" id="toc-gösterim-sadece-iki-sembol">4. Gösterim (sadece iki
+sembol)</a></li>
+<li><a href="#etiketleri-dolduralım-4.-sütun-en-kolayı" id="toc-etiketleri-dolduralım-4.-sütun-en-kolayı">5. Etiketleri
+dolduralım — 4. sütun (en kolayı)</a></li>
+<li><a href="#sütun-burada-iş-başlıyor" id="toc-sütun-burada-iş-başlıyor">6. 3. sütun — burada iş
+başlıyor</a></li>
+<li><a href="#sütun" id="toc-sütun">7. 2. sütun</a></li>
+<li><a href="#sütun-final" id="toc-sütun-final">8. 1. sütun —
+final</a></li>
+<li><a href="#rota-nerede" id="toc-rota-nerede">9. Rota nerede?</a></li>
+<li><a href="#peki-gerçekten-kârlı-mı" id="toc-peki-gerçekten-kârlı-mı">10. Peki gerçekten kârlı mı?</a></li>
+<li><a href="#az-önce-ne-yaptınız" id="toc-az-önce-ne-yaptınız">11. Az
+önce ne yaptınız?</a></li>
+<li><a href="#en-sık-yapılan-üç-hata" id="toc-en-sık-yapılan-üç-hata">12. En sık yapılan üç hata</a></li>
+<li><a href="#kendini-sına" id="toc-kendini-sına">13. Kendini
+sına</a></li>
+<li><a href="#sözlük" id="toc-sözlük">Sözlük</a></li>
+<li><a href="#kaynak" id="toc-kaynak">Kaynak</a></li>
+</ul>
+</nav>
+<p><strong>Kime:</strong> Endüstri Mühendisliği 1. sınıf. Ön bilgi
+gerekmiyor — toplama ve “hangisi daha küçük” yetiyor.</p>
+<p><strong>Nasıl okunacak:</strong> Metinde <strong>SORU</strong>
+kutuları var, cevapları kapalı. Açmadan önce cevabı kendin bul —
+atlarsan bir şey öğrenmezsin, ciddiyim.</p>
+<ul>
+<li>Tarayıcıda (HTML): kutunun üstüne <strong>tıkla</strong>.</li>
+<li>nvim’de (.md): imleç kutunun satırındayken
+<strong><code>za</code></strong>. Hepsini açmak <code>zR</code>, hepsini
+kapatmak <code>zM</code>.</li>
+</ul>
+<hr />
+<h2 id="önce-bir-dakikalık-ısınma">0. Önce bir dakikalık ısınma</h2>
+<p>Evden okula gidiyorsun. İki ara durak var, birinden geçmek
+zorundasın. Sayılar dakika:</p>
+<pre><code>                (A)
+           3  /     \  4
+             /       \
+   EV ───────         ─────── OKUL
+             \       /
+           5  \     /  1
+                (B)</code></pre>
+<p>İki yol var:</p>
+<pre><code>   EV → A → OKUL  =  3 + 4  =  7 dakika
+   EV → B → OKUL  =  5 + 1  =  6 dakika   ← kazanan</code></pre>
+<details>
+<summary>
+<b>SORU 1</b> — İlk adımı seçerken “en kısa olanı seç” desek ne olurdu?
+(aç: tıkla · nvim: za)
+</summary>
+<p>Yanılırdık. İlk adımda A’ya gitmek daha kısa (3 &lt; 5), ama
+<strong>A’dan sonrası pahalı</strong> (4). B’ye gitmek başta uzun
+görünüyor (5), ama <strong>B’den sonrası ucuz</strong> (1). Toplam
+kazanan B.</p>
+<p><strong>Buradan çıkan ders — bunu bütün derse
+taşıyacağız:</strong></p>
+<blockquote>
+<p>Bir adımın iyi olup olmadığına, o adımın <strong>kendi
+uzunluğuna</strong> bakarak karar veremezsin. O adımın uzunluğu
+<strong>artı</strong> o adımdan sonra kalan yolun uzunluğu — ikisinin
+toplamı karar verir.</p>
+</blockquote>
+</details>
+<p>Bu iki satırlık fikir, aşağıdaki 10 şehirlik problemi de çözecek. Tek
+fark boyut.</p>
+<hr />
+<h2 id="asıl-problem">1. Asıl problem</h2>
+<p>Joe, <strong>New York</strong>’tan <strong>Los Angeles</strong>’a
+arabayla gidiyor. Yolculuk 4 gün sürüyor ve her günün sonunda belirli
+şehirlerden birinde konaklıyor. Şehirler 5 sütuna ayrılmış — her sütun
+bir günün başlangıcı:</p>
+<pre><code>  1. gün        2. gün         3. gün         4. gün        5. gün
+
+               Columbus      Kansas City     Denver
+                  (2)            (5)           (8)
+
+ New York      Nashville        Omaha                     Los Angeles
+   (1)            (3)            (6)                          (10)
+
+               Louisville      Dallas       San Antonio
+                  (4)            (7)           (9)
+
+        oklar hep sağa gider — geri dönüş yok, sütun atlamak yok</code></pre>
+<p>Her sütundaki her şehir, bir sonraki sütundaki <strong>her</strong>
+şehre bağlı. Yolların uzunlukları (km) şöyle:</p>
+<pre><code>1. bacak — 1. sütundan 2. sütuna
+                      ,--  550 --&gt; (2) Columbus
+      (1) New York ---+--  900 --&gt; (3) Nashville
+                      `--  770 --&gt; (4) Louisville
+
+2. bacak — 2. sütundan 3. sütuna
+                      ,--  680 --&gt; (5) Kansas City
+      (2) Columbus ---+--  790 --&gt; (6) Omaha
+                      `-- 1050 --&gt; (7) Dallas
+
+                      ,--  580 --&gt; (5) Kansas City
+     (3) Nashville ---+--  760 --&gt; (6) Omaha
+                      `--  660 --&gt; (7) Dallas
+
+                      ,--  510 --&gt; (5) Kansas City
+    (4) Louisville ---+--  700 --&gt; (6) Omaha
+                      `--  830 --&gt; (7) Dallas
+
+3. bacak — 3. sütundan 4. sütuna
+                      ,--  610 --&gt; (8) Denver
+   (5) Kansas City ---+
+                      `--  790 --&gt; (9) San Antonio
+
+                      ,--  540 --&gt; (8) Denver
+         (6) Omaha ---+
+                      `--  940 --&gt; (9) San Antonio
+
+                      ,--  790 --&gt; (8) Denver
+        (7) Dallas ---+
+                      `--  270 --&gt; (9) San Antonio
+
+4. bacak — 4. sütundan 5. sütuna   (burada seçim yok, tek yol var)
+        (8) Denver ---- 1030 ---&gt; (10) Los Angeles
+   (9) San Antonio ---- 1390 ---&gt; (10) Los Angeles</code></pre>
+<p>Aynı ağ, bu kez şema olarak. Sütunları ve okları takip et — her ok
+bir bacak, üstündeki sayı o bacağın mili:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 274" width="756" role="img" aria-labelledby="net-title" class="figure network">
+<title id="net-title">On şehirli ağ: New York’tan Los Angeles’a beş sütun, her ok üzerinde mil cinsinden mesafe</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 11px; fill: var(--muted, #5b6570); letter-spacing: .04em; text-transform: uppercase; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .dist { font-size: 12px; font-weight: 600; text-anchor: middle; dominant-baseline: central;
+paint-order: stroke; stroke: var(--bg, #fbfaf8); stroke-width: 5px; stroke-linejoin: round; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; paint-order: stroke; stroke: var(--bg, #fbfaf8); stroke-width: 4px; stroke-linejoin: round; }
+</style>
+<defs><marker id="net-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker></defs>
+<text class="hdr" x="50" y="16" text-anchor="middle">1. sütun</text>
+<text class="hdr" x="207" y="16" text-anchor="middle">2. sütun</text>
+<text class="hdr" x="364" y="16" text-anchor="middle">3. sütun</text>
+<text class="hdr" x="521" y="16" text-anchor="middle">4. sütun</text>
+<text class="hdr" x="678" y="16" text-anchor="middle">5. sütun</text>
+<g class="edges">
+<line class="edge" x1="65" y1="150" x2="191" y2="70" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="65" y1="150" x2="191" y2="150" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="65" y1="150" x2="191" y2="230" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="70" x2="348" y2="70" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="70" x2="348" y2="150" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="70" x2="348" y2="230" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="150" x2="348" y2="70" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="150" x2="348" y2="150" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="150" x2="348" y2="230" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="230" x2="348" y2="70" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="230" x2="348" y2="150" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222" y1="230" x2="348" y2="230" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="379" y1="70" x2="505" y2="110" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="379" y1="70" x2="505" y2="190" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="379" y1="150" x2="505" y2="110" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="379" y1="150" x2="505" y2="190" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="379" y1="230" x2="505" y2="110" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="379" y1="230" x2="505" y2="190" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="536" y1="110" x2="662" y2="150" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="536" y1="190" x2="662" y2="150" marker-end="url(#net-arrow)"></line>
+</g>
+<g class="labels">
+<text class="dist" x="128" y="110">550</text>
+<text class="dist" x="128" y="150">900</text>
+<text class="dist" x="128" y="190">770</text>
+<text class="dist" x="286" y="70">680</text>
+<text class="dist" x="317" y="130">790</text>
+<text class="dist" x="254" y="110">1050</text>
+<text class="dist" x="298" y="102">580</text>
+<text class="dist" x="266" y="150">760</text>
+<text class="dist" x="298" y="198">660</text>
+<text class="dist" x="247" y="198">510</text>
+<text class="dist" x="317" y="170">700</text>
+<text class="dist" x="286" y="230">830</text>
+<text class="dist" x="442" y="90">610</text>
+<text class="dist" x="404" y="94">790</text>
+<text class="dist" x="430" y="134">540</text>
+<text class="dist" x="468" y="178">940</text>
+<text class="dist" x="430" y="182">790</text>
+<text class="dist" x="442" y="210">270</text>
+<text class="dist" x="600" y="130">1030</text>
+<text class="dist" x="600" y="170">1390</text>
+</g>
+<g class="nodes">
+<circle class="node" cx="50" cy="150" r="15"></circle>
+<text class="num" x="50" y="150">1</text>
+<text class="name" x="50" y="180">New York</text>
+<circle class="node" cx="207" cy="70" r="15"></circle>
+<text class="num" x="207" y="70">2</text>
+<text class="name" x="207" y="45">Columbus</text>
+<circle class="node" cx="207" cy="150" r="15"></circle>
+<text class="num" x="207" y="150">3</text>
+<text class="name" x="207" y="180">Nashville</text>
+<circle class="node" cx="207" cy="230" r="15"></circle>
+<text class="num" x="207" y="230">4</text>
+<text class="name" x="207" y="260">Louisville</text>
+<circle class="node" cx="364" cy="70" r="15"></circle>
+<text class="num" x="364" y="70">5</text>
+<text class="name" x="364" y="45">Kansas City</text>
+<circle class="node" cx="364" cy="150" r="15"></circle>
+<text class="num" x="364" y="150">6</text>
+<text class="name" x="364" y="180">Omaha</text>
+<circle class="node" cx="364" cy="230" r="15"></circle>
+<text class="num" x="364" y="230">7</text>
+<text class="name" x="364" y="260">Dallas</text>
+<circle class="node" cx="521" cy="110" r="15"></circle>
+<text class="num" x="521" y="110">8</text>
+<text class="name" x="521" y="85">Denver</text>
+<circle class="node" cx="521" cy="190" r="15"></circle>
+<text class="num" x="521" y="190">9</text>
+<text class="name" x="521" y="220">San Antonio</text>
+<circle class="node" cx="678" cy="150" r="15"></circle>
+<text class="num" x="678" y="150">10</text>
+<text class="name" x="678" y="180">Los Angeles</text>
+</g>
+</svg>
+</p>
+<p><strong>Soru şu: Joe hangi şehirlerden geçerse toplam yol en kısa
+olur?</strong></p>
+<blockquote>
+<p><strong>☕ Ara not — bu şeklin bir de kovboy hâli var</strong></p>
+<p>Aynı ağ, başka bir ders kitabında (Hillier &amp; Lieberman)
+<strong>posta arabası problemi</strong> diye geçer: 1800’lerin ortası,
+bir maceracı batıya posta arabasıyla gidiyor. Ama oklardaki sayılar
+mesafe değil — <strong>hayat sigortası primi.</strong> Güzergâh ne kadar
+tehlikeliyse prim o kadar yüksek. Yani “en kısa yolu bul” aslında “sağ
+kalma ihtimali en yüksek yolu bul” demek.</p>
+<p>Şekil neredeyse aynı, sayılar bambaşka (onların cevabı 2870 değil,
+11). Ders için önemli olan taraf şu: <strong>yöntem “km” ile
+ilgilenmiyor.</strong> Toplanabilen ve küçüğü iyi olan her şey olur —
+para, dakika, risk, yakıt. Problemi tanımak, birimini tanımaktan daha
+önemli.</p>
+</blockquote>
+<hr />
+<h2 id="hepsini-deneriz-olur-biter">2. “Hepsini deneriz olur biter”</h2>
+<p>İlk akla gelen bu. Deneyelim.</p>
+<details>
+<summary>
+<b>SORU 2</b> — New York’tan Los Angeles’a kaç farklı yol var? (aç:
+tıkla · nvim: za)
+</summary>
+<p>İlk seçim 3 şehirden biri, sonra yine 3, sonra 2, sonra 1 (Los
+Angeles’a tek yol):</p>
+<pre><code>   3 × 3 × 2 × 1 = 18 yol</code></pre>
+<p>Her yolun uzunluğunu bulmak için 4 sayı toplanır, yani <strong>3
+toplama</strong> işlemi. Toplam: 18 × 3 = <strong>54 toplama</strong>.
+Sonra 18 sayının en küçüğü seçilir.</p>
+<p>Yapılabilir. Sıkıcı ama yapılabilir.</p>
+</details>
+<p>Şimdi kritik soru: problem biraz büyürse ne olur? Hocanın ikinci
+örneğinde 7 sütun ve ara sütunlarda 5’er şehir var.</p>
+<details>
+<summary>
+<b>SORU 3</b> — O ağda kaç yol vardır? Tahmin et, sonra aç. (aç: tıkla ·
+nvim: za)
+</summary>
+<pre><code>   5 × 5 × 5 × 5 × 5 = 5⁵ = 3125 yol
+   3125 × 5 toplama  = 15.625 toplama</code></pre>
+<p>10 şehir → 54 işlem. 27 şehir → 15.625 işlem. Şehir sayısı 2,5 katına
+çıktı, iş yükü <strong>290 katına</strong> çıktı.</p>
+<p>Bu yöntemin adı <strong>tam sayım</strong> (enumeration) ve problemi
+büyüttüğünüz anda çöker. Çünkü <strong>yol sayısı</strong> sütun başına
+çarpılarak büyür: 3, 9, 18, 54… patlar.</p>
+</details>
+<p>Yani “hepsini deneriz” bir yöntem değil, bir ertelemedir. Daha iyisi
+lazım.</p>
+<hr />
+<h2 id="büyük-fikir-sondan-başla">3. Büyük fikir: sondan başla</h2>
+<p>Şimdi bir düşünce deneyi. Joe yolun ortasında, <strong>Kansas
+City</strong>’de duruyor.</p>
+<p>Sana bir soru: <em>Kansas City’den sonra ne yapması gerektiğini
+bulmak için, oraya Columbus üzerinden mi yoksa Nashville üzerinden mi
+geldiğini bilmen gerekiyor mu?</em></p>
+<details>
+<summary>
+<b>SORU 4</b> — Cevabını verdikten sonra aç. (aç: tıkla · nvim: za)
+</summary>
+<p><strong>Hayır. Zerre kadar önemi yok.</strong></p>
+<p>Kansas City’de duruyorsan, önündeki harita tektir: Denver’a 610, San
+Antonio’ya 790, sonrası da belli. Geçmişin bu haritayı
+değiştirmiyor.</p>
+<pre><code>    geçmiş  ─────►  ŞU AN  ─────►  gelecek
+   (önemsiz)      Kansas City    (yalnız buna bağlı)</code></pre>
+<p>Buna <strong>optimallik ilkesi</strong> deniyor. Kulağa büyük laf
+gibi geliyor ama söylediği şey bu kadar basit: <em>nereden geldiğin
+değil, nerede olduğun önemli.</em></p>
+<p>⚠ Bu her problemde doğru değildir. Mesela yol boyunca yakıt harcıyor
+olsaydık ve depoda kalan yakıt geçmişe bağlı olsaydı, “sadece şehri
+bilmek” yetmezdi. O yüzden bu ilke <strong>kontrol edilir,
+varsayılmaz.</strong></p>
+</details>
+<p>Bu doğruysa çok güçlü bir şey yapabiliriz. Her şehre bir
+<strong>etiket</strong> yapıştıralım:</p>
+<blockquote>
+<p><strong>Etiket = “Bu şehirdesin. Los Angeles’a varana kadar önünde
+daha kaç km var?”</strong></p>
+</blockquote>
+<p>Dikkat: etiket, o şehre <strong>gelene kadar</strong> harcanan yol
+değil. O şehirden <strong>sonra</strong> kalan yol. Isınma örneğindeki
+gibi:</p>
+<pre><code>   EV                 (A) etiket = 4          OKUL
+                      (B) etiket = 1</code></pre>
+<p>Etiketleri bilirsek, karar çocuk oyuncağı olur: her şehirde
+<code>yolun uzunluğu + gittiğin şehrin etiketi</code> hesaplanır, en
+küçüğü seçilir.</p>
+<pre><code>                     [  ?  ]         [  ?  ]        [  ?  ]
+                    Columbus       Kansas City      Denver
+                       (2)             (5)            (8)
+
+     [  ?  ]         [  ?  ]         [  ?  ]                       [  0  ]
+    New York        Nashville         Omaha                      Los Angeles
+       (1)             (3)             (6)                          (10)
+
+                     [  ?  ]         [  ?  ]        [  ?  ]
+                   Louisville        Dallas       San Antonio
+                       (4)             (7)            (9)
+
+
+   Los Angeles&#39;ın etiketi sıfır: vardık, önümüzde yol kalmadı.
+   Bütün iş, soru işaretlerini doldurmak — hem de SAĞDAN SOLA:
+
+              [ ? ] ◄─── [ ? ] ◄─── [ ? ] ◄─── [ 0 ]</code></pre>
+<p><strong>Peki etiketleri nasıl bulacağız?</strong> İşte numara
+burada:</p>
+<pre><code>   New York&#39;un etiketini bulmak için 2. sütunun etiketleri lazım.
+   2. sütun için 3. sütun lazım.
+   3. sütun için 4. sütun lazım.
+   4. sütun için...  hiçbir şey lazım değil! Oradan Los Angeles&#39;a tek yol var.</code></pre>
+<p>Demek ki <strong>soldan değil, sağdan başlayacağız.</strong> Buna
+<strong>geriye doğru özyineleme</strong> (backward recursion)
+deniyor.</p>
+<hr />
+<h2 id="gösterim-sadece-iki-sembol">4. Gösterim (sadece iki sembol)</h2>
+<p>Uzun uzun yazmayalım diye iki kısaltma:</p>
+<pre><code>   c_ij     = i şehrinden j şehrine olan yolun uzunluğu
+              örnek: c₂₅ = 680  (Columbus&#39;tan Kansas City&#39;ye)
+
+   f_t(i)   = i şehrinin ETİKETİ
+              yani i&#39;den Los Angeles&#39;a kalan EN KISA yol
+              t = i&#39;nin hangi sütunda olduğu</code></pre>
+<p>Hepsi bu. <code>f</code> harfini gördüğünüz her yerde içinizden
+“buradan sonrası kaç km” diye okuyun.</p>
+<hr />
+<h2 id="etiketleri-dolduralım-4.-sütun-en-kolayı">5. Etiketleri
+dolduralım — 4. sütun (en kolayı)</h2>
+<p>Denver’dan da San Antonio’dan da Los Angeles’a <strong>tek</strong>
+yol var. Seçim yok, düşünmek yok:</p>
+<pre><code>   f₄(8) = 1030      (Denver)
+   f₄(9) = 1390      (San Antonio)</code></pre>
+<p>Zincirin ilk halkası bu. Bundan sonraki her sayı bu ikisinin üstüne
+binecek.</p>
+<hr />
+<h2 id="sütun-burada-iş-başlıyor">6. 3. sütun — burada iş başlıyor</h2>
+<p>Kansas City, Omaha ve Dallas’tayız. Her birinden iki seçenek var:
+Denver (8) veya San Antonio (9). Kural hep aynı:</p>
+<pre><code>   yolun uzunluğu   +   gittiğin şehrin etiketi   →   en küçüğünü seç</code></pre>
+<p>Kansas City’yi birlikte yapalım:</p>
+<pre><code>              ⎧ Denver&#39;a:       c₅₈ + f₄(8) = 610 + 1030 = 1640   ★
+   f₃(5)  =   ⎨
+              ⎩ San Antonio&#39;ya: c₅₉ + f₄(9) = 790 + 1390 = 2180</code></pre>
+<p>Yıldız (★) kazanan satırı işaretler. <strong>Yıldızı işaretlemeyi
+asla unutmayın</strong>, birazdan neden anlaşılacak.</p>
+<p><code>f₃(5) = 1640</code>. Bunu şöyle okuyun: <em>“Kansas City’de
+olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
+<p>Şimdi sıra sende.</p>
+<details>
+<summary>
+<b>SORU 5</b> — Omaha’nın (6) etiketini hesapla. (aç: tıkla · nvim: za)
+</summary>
+<pre><code>              ⎧ Denver&#39;a:       540 + 1030 = 1570   ★
+   f₃(6)  =   ⎨
+              ⎩ San Antonio&#39;ya: 940 + 1390 = 2330</code></pre>
+<p><strong>f₃(6) = 1570</strong>, Denver’a gidilir.</p>
+</details>
+<details>
+<summary>
+<b>SORU 6</b> — Şimdi Dallas (7). Dikkat: Dallas’tan San Antonio’ya yol
+sadece <b>270</b> km — bütün haritadaki en kısa yol. Dallas kesin San
+Antonio’ya gider, değil mi? (aç: tıkla · nvim: za)
+</summary>
+<pre><code>              ⎧ Denver&#39;a:       790 + 1030 = 1820
+   f₃(7)  =   ⎨
+              ⎩ San Antonio&#39;ya: 270 + 1390 = 1660   ★</code></pre>
+<p>Evet, San Antonio kazanıyor — <strong>ama kıl payı</strong>: 1660’a
+karşı 1820, sadece 160 km fark.</p>
+<p>Oysa yollara bakarsanız fark uçurum: 270’e karşı 790, yani San
+Antonio yolu üç kat kısa. Bu muazzam avantaj nereye buharlaştı?</p>
+<p><strong>San Antonio’nun kendisi pahalı bir şehir</strong> (etiketi
+1390, Denver’ınki 1030). Ucuz yolla pahalı şehre gidiyorsunuz. Isınma
+sorusundaki tuzağın aynısı.</p>
+</details>
+<p>Üçünün tam dökümü — her şehir için iki seçenek, kazanan işaretli:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Şehir</th>
+<th style="text-align: left;">Gidilecek</th>
+<th style="text-align: right;">yol cᵢⱼ</th>
+<th style="text-align: right;">etiket <code>f₄(j)</code></th>
+<th style="text-align: left;">Toplam</th>
+<th style="text-align: left;">Sonuç</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">Kansas City (5)</td>
+<td style="text-align: left;"><span class="kazanan">Denver (8)</span></td>
+<td style="text-align: right;">610</td>
+<td style="text-align: right;">1030</td>
+<td style="text-align: left;"><span class="kazanan">610 + 1030 = 1640
+★</span></td>
+<td class="ozet" rowspan="2"><span class="kazanan">f₃(5) = 1640<br>x₃(5) = Denver (8)</span></td>
+</tr>
+<tr class="even">
+<td class="grup-a" style="text-align: left;">Kansas City (5)</td>
+<td style="text-align: left;">San Antonio (9)</td>
+<td style="text-align: right;">790</td>
+<td style="text-align: right;">1390</td>
+<td style="text-align: left;">790 + 1390 = 2180</td>
+</tr>
+<tr class="odd">
+<td class="grup-b" style="text-align: left;">Omaha (6)</td>
+<td style="text-align: left;"><span class="kazanan">Denver (8)</span></td>
+<td style="text-align: right;">540</td>
+<td style="text-align: right;">1030</td>
+<td style="text-align: left;"><span class="kazanan">540 + 1030 = 1570
+★</span></td>
+<td class="ozet" rowspan="2"><span class="kazanan">f₃(6) = 1570<br>x₃(6) = Denver (8)</span></td>
+</tr>
+<tr class="even">
+<td class="grup-b" style="text-align: left;">Omaha (6)</td>
+<td style="text-align: left;">San Antonio (9)</td>
+<td style="text-align: right;">940</td>
+<td style="text-align: right;">1390</td>
+<td style="text-align: left;">940 + 1390 = 2330</td>
+</tr>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">Dallas (7)</td>
+<td style="text-align: left;">Denver (8)</td>
+<td style="text-align: right;">790</td>
+<td style="text-align: right;">1030</td>
+<td style="text-align: left;">790 + 1030 = 1820</td>
+<td class="ozet" rowspan="2"><span class="kazanan">f₃(7) = 1660<br>x₃(7) = San Antonio (9)</span></td>
+</tr>
+<tr class="even">
+<td class="grup-a" style="text-align: left;">Dallas (7)</td>
+<td style="text-align: left;"><span class="kazanan">San Antonio (9)</span></td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">1390</td>
+<td style="text-align: left;"><span class="kazanan">270 + 1390 = 1660
+★</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dallas satırına dikkat:</strong> haritanın en kısa yolu onda
+(270 km), ama gittiği şehrin etiketi en pahalısı (1390). Avantaj
+neredeyse eriyor — 1660’a karşı 1820. <em>Ucuz yol, kötü şehir.</em></p>
+<p>Üçü bir arada:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Şehir</th>
+<th>Etiket <code>f₃(i)</code></th>
+<th>Nereye gitmeli</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kansas City (5)</td>
+<td><strong>1640</strong></td>
+<td>Denver (8)</td>
+</tr>
+<tr class="even">
+<td>Omaha (6)</td>
+<td><strong>1570</strong></td>
+<td>Denver (8)</td>
+</tr>
+<tr class="odd">
+<td>Dallas (7)</td>
+<td><strong>1660</strong></td>
+<td>San Antonio (9)</td>
+</tr>
+</tbody>
+</table>
+<p>İki sütunun tamamı tek tahtada — sınav kâğıdına
+<strong>böyle</strong> yazılır: her şehir için bir küme parantezi, satır
+başına bir seçenek, kazanana yıldız:</p>
+<div class="tahta">
+<div class="tahta-baslik">
+Tahta — 4. ve 3. sütun
+</div>
+<pre>
+cᵢⱼ    = i şehrinden j şehrine yolun uzunluğu
+fₜ(i)  = i şehrinin etiketi: i&#39;den Los Angeles&#39;a kalan EN KISA yol   (t = i&#39;nin sütunu)
+
+4. SÜTUN — seçim yok, tek yol
+   f₄(8) = 1030            Denver → Los Angeles
+   f₄(9) = 1390            San Antonio → Los Angeles
+
+3. SÜTUN — her şehirden iki seçenek, küçüğü kazanır
+            ⎧ <mark>c₅₈ + f₄(8) = 610 + 1030 = 1640 ★</mark>
+   f₃(5) =  ⎨                                          f₃(5) = 1640    x₃(5) = 8  Denver
+            ⎩ c₅₉ + f₄(9) = 790 + 1390 = 2180
+
+            ⎧ <mark>c₆₈ + f₄(8) = 540 + 1030 = 1570 ★</mark>
+   f₃(6) =  ⎨                                          f₃(6) = 1570    x₃(6) = 8  Denver
+            ⎩ c₆₉ + f₄(9) = 940 + 1390 = 2330
+
+            ⎧ c₇₈ + f₄(8) = 790 + 1030 = 1820
+   f₃(7) =  ⎨                                          f₃(7) = 1660    x₃(7) = 9  San Antonio
+            ⎩ <mark>c₇₉ + f₄(9) = 270 + 1390 = 1660 ★</mark>
+</pre>
+</div>
+<p><strong>Şu an ne kazandık?</strong> Dallas’ın arkasındaki bütün
+alt-yolları bir daha asla hesaplamayacağız. Dallas artık tek bir sayı:
+<strong>1660</strong>. Ağacın o kolu kapandı. Dinamik programlamanın
+bütün tasarrufu tam olarak budur.</p>
+<pre><code>   ÖNCE — Dallas&#39;ın arkasında koca bir dünya var:
+
+     Dallas (7) ──┬── Denver (8) ─────── LA     790 + 1030 = 1820
+                  │
+                  └── San Antonio (9) ── LA     270 + 1390 = 1660 ★
+
+                             │
+                             │  hesaplandı, mühürlendi
+                             ▼
+
+   SONRA — o dünyanın tamamı tek bir sayı:
+
+                  ╔═════════════════════╗
+                  ║   Dallas  =  1660   ║
+                  ╚═════════════════════╝
+              arkasına bir daha bakılmayacak</code></pre>
+<p>Birazdan 2. sütunda Dallas’ı <strong>üç kez</strong> kullanacağız.
+Üçünde de sadece bu kutuya bakacağız — arkasındaki dünyayı bir daha hiç
+açmayacağız.</p>
+<hr />
+<h2 id="sütun">7. 2. sütun</h2>
+<p>Columbus, Nashville, Louisville. Her birinden <strong>üç</strong>
+seçenek var (5, 6, 7). Kural değişmedi — sadece artık 3. sütunun
+etiketlerini kullanıyoruz.</p>
+<pre><code>              ⎧ c₂₅ + f₃(5) =  680 + 1640 = 2320   ★
+   f₂(2)  =   ⎨ c₂₆ + f₃(6) =  790 + 1570 = 2360
+              ⎩ c₂₇ + f₃(7) = 1050 + 1660 = 2710</code></pre>
+<details>
+<summary>
+<b>SORU 7</b> — Nashville (3) ve Louisville (4) için aynısını yap. (aç:
+tıkla · nvim: za)
+</summary>
+<pre><code>              ⎧ c₃₅ + f₃(5) =  580 + 1640 = 2220   ★
+   f₂(3)  =   ⎨ c₃₆ + f₃(6) =  760 + 1570 = 2330
+              ⎩ c₃₇ + f₃(7) =  660 + 1660 = 2320
+
+              ⎧ c₄₅ + f₃(5) =  510 + 1640 = 2150   ★
+   f₂(4)  =   ⎨ c₄₆ + f₃(6) =  700 + 1570 = 2270
+              ⎩ c₄₇ + f₃(7) =  830 + 1660 = 2490</code></pre>
+<p>Toplam 9 toplama yaptık. Dikkat edin: <code>f₃(5) = 1640</code>
+sayısını <strong>üç kez</strong> kullandık, üç kez yeniden hesaplamadık.
+Tembellik değil, yöntem bu.</p>
+</details>
+<p>Dokuz satırın tamamı — üç şehir, her birinden üç seçenek:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Şehir</th>
+<th style="text-align: left;">Gidilecek</th>
+<th style="text-align: right;">yol cᵢⱼ</th>
+<th style="text-align: right;">etiket <code>f₃(j)</code></th>
+<th style="text-align: left;">Toplam</th>
+<th style="text-align: left;">Sonuç</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">Columbus (2)</td>
+<td style="text-align: left;"><span class="kazanan">Kansas City (5)</span></td>
+<td style="text-align: right;">680</td>
+<td style="text-align: right;">1640</td>
+<td style="text-align: left;"><span class="kazanan">680 + 1640 = 2320
+★</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan">f₂(2) = 2320<br>x₂(2) = Kansas City (5)</span></td>
+</tr>
+<tr class="even">
+<td class="grup-a" style="text-align: left;">Columbus (2)</td>
+<td style="text-align: left;">Omaha (6)</td>
+<td style="text-align: right;">790</td>
+<td style="text-align: right;">1570</td>
+<td style="text-align: left;">790 + 1570 = 2360</td>
+</tr>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">Columbus (2)</td>
+<td style="text-align: left;">Dallas (7)</td>
+<td style="text-align: right;">1050</td>
+<td style="text-align: right;">1660</td>
+<td style="text-align: left;">1050 + 1660 = 2710</td>
+</tr>
+<tr class="even">
+<td class="grup-b" style="text-align: left;">Nashville (3)</td>
+<td style="text-align: left;"><span class="kazanan">Kansas City (5)</span></td>
+<td style="text-align: right;">580</td>
+<td style="text-align: right;">1640</td>
+<td style="text-align: left;"><span class="kazanan">580 + 1640 = 2220
+★</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan">f₂(3) = 2220<br>x₂(3) = Kansas City (5)</span></td>
+</tr>
+<tr class="odd">
+<td class="grup-b" style="text-align: left;">Nashville (3)</td>
+<td style="text-align: left;">Omaha (6)</td>
+<td style="text-align: right;">760</td>
+<td style="text-align: right;">1570</td>
+<td style="text-align: left;">760 + 1570 = 2330</td>
+</tr>
+<tr class="even">
+<td class="grup-b" style="text-align: left;">Nashville (3)</td>
+<td style="text-align: left;">Dallas (7)</td>
+<td style="text-align: right;">660</td>
+<td style="text-align: right;">1660</td>
+<td style="text-align: left;">660 + 1660 = 2320</td>
+</tr>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">Louisville (4)</td>
+<td style="text-align: left;"><span class="kazanan">Kansas City (5)</span></td>
+<td style="text-align: right;">510</td>
+<td style="text-align: right;">1640</td>
+<td style="text-align: left;"><span class="kazanan">510 + 1640 = 2150
+★</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan">f₂(4) = 2150<br>x₂(4) = Kansas City (5)</span></td>
+</tr>
+<tr class="even">
+<td class="grup-a" style="text-align: left;">Louisville (4)</td>
+<td style="text-align: left;">Omaha (6)</td>
+<td style="text-align: right;">700</td>
+<td style="text-align: right;">1570</td>
+<td style="text-align: left;">700 + 1570 = 2270</td>
+</tr>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">Louisville (4)</td>
+<td style="text-align: left;">Dallas (7)</td>
+<td style="text-align: right;">830</td>
+<td style="text-align: right;">1660</td>
+<td style="text-align: left;">830 + 1660 = 2490</td>
+</tr>
+</tbody>
+</table>
+<p>Columbus’un ilk iki satırına bak: 2320’ye karşı 2360, <strong>40 km
+fark</strong> — 2000 km’yi aşan bir yolculukta. Bu kadar yakın sonuçlar
+normaldir ve tam bu yüzden göz kararı yapılmaz, hesap yapılır.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Şehir</th>
+<th>Etiket <code>f₂(i)</code></th>
+<th>Nereye gitmeli</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columbus (2)</td>
+<td><strong>2320</strong></td>
+<td>Kansas City (5)</td>
+</tr>
+<tr class="even">
+<td>Nashville (3)</td>
+<td><strong>2220</strong></td>
+<td>Kansas City (5)</td>
+</tr>
+<tr class="odd">
+<td>Louisville (4)</td>
+<td><strong>2150</strong></td>
+<td>Kansas City (5)</td>
+</tr>
+</tbody>
+</table>
+<p>Ve tahta hâli — bu kez her kümede üç satır:</p>
+<div class="tahta">
+<div class="tahta-baslik">
+Tahta — 2. sütun
+</div>
+<pre>
+2. SÜTUN — her şehirden üç seçenek (5, 6, 7), küçüğü kazanır
+            ⎧ <mark>c₂₅ + f₃(5) =  680 + 1640 = 2320 ★</mark>
+   f₂(2) =  ⎨ c₂₆ + f₃(6) =  790 + 1570 = 2360           f₂(2) = 2320    x₂(2) = 5  Kansas City
+            ⎩ c₂₇ + f₃(7) = 1050 + 1660 = 2710
+
+            ⎧ <mark>c₃₅ + f₃(5) =  580 + 1640 = 2220 ★</mark>
+   f₂(3) =  ⎨ c₃₆ + f₃(6) =  760 + 1570 = 2330           f₂(3) = 2220    x₂(3) = 5  Kansas City
+            ⎩ c₃₇ + f₃(7) =  660 + 1660 = 2320
+
+            ⎧ <mark>c₄₅ + f₃(5) =  510 + 1640 = 2150 ★</mark>
+   f₂(4) =  ⎨ c₄₆ + f₃(6) =  700 + 1570 = 2270           f₂(4) = 2150    x₂(4) = 5  Kansas City
+            ⎩ c₄₇ + f₃(7) =  830 + 1660 = 2490
+
+   Üç şehir de Kansas City&#39;ye gidiyor. f₃(5) = 1640 üç kez kullanıldı, bir kez hesaplandı.
+</pre>
+</div>
+<details>
+<summary>
+<b>SORU 8</b> — Louisville’in etiketi en küçük (2150). Demek ki Joe
+Louisville’e gidecek. Doğru mu? (aç: tıkla · nvim: za)
+</summary>
+<p><strong>Henüz bilmiyoruz — ve muhtemelen hayır.</strong></p>
+<p>Etiket sadece <em>“oraya vardıktan sonra”</em> kalan yolu söyler.
+<strong>Oraya varmanın maliyeti</strong> hesaba hiç girmedi.
+Louisville’e gitmek New York’tan 770 km, oysa Columbus 550 km.</p>
+<p>Isınma sorusuyla tıpatıp aynı tuzak. Bir sonraki adımda
+çözülecek.</p>
+</details>
+<hr />
+<h2 id="sütun-final">8. 1. sütun — final</h2>
+<p>Tek şehir kaldı: New York.</p>
+<details>
+<summary>
+<b>SORU 9</b> — Üç satırı hesapla ve kazananı bul. (aç: tıkla · nvim:
+za)
+</summary>
+<pre><code>              ⎧ c₁₂ + f₂(2) = 550 + 2320 = 2870   ★
+   f₁(1)  =   ⎨ c₁₃ + f₂(3) = 900 + 2220 = 3120
+              ⎩ c₁₄ + f₂(4) = 770 + 2150 = 2920</code></pre>
+<p><strong>f₁(1) = 2870</strong>, Columbus üzerinden.</p>
+<p><strong>Louisville kaybetti — 50 km farkla.</strong> En iyi devamı
+onda vardı (2150), ama oraya gitmek 220 km fazla tuttu (770’e karşı 550)
+ve fark kapanmadı.</p>
+<pre><code>   Columbus    :   550  +  2320   =  2870      yol kısa, devamı orta
+   Louisville  :   770  +  2150   =  2920      yol uzun, devamı en iyi
+                    ▲        ▲
+                    │        └── tek başına Louisville kazanır
+                    └── tek başına Columbus kazanır</code></pre>
+<p>Ne yol tek başına, ne devam tek başına karar veriyor. <strong>Sadece
+toplam.</strong> <code>c + f</code> formülünün bütün anlamı bu.</p>
+</details>
+<hr />
+<p>Üç satır, tek tablo:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Şehir</th>
+<th style="text-align: left;">Gidilecek</th>
+<th style="text-align: right;">yol cᵢⱼ</th>
+<th style="text-align: right;">etiket <code>f₂(j)</code></th>
+<th style="text-align: left;">Toplam</th>
+<th style="text-align: left;">Sonuç</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">New York (1)</td>
+<td style="text-align: left;"><span class="kazanan">Columbus (2)</span></td>
+<td style="text-align: right;">550</td>
+<td style="text-align: right;">2320</td>
+<td style="text-align: left;"><span class="kazanan">550 + 2320 = 2870
+★</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan">f₁(1) = 2870<br>x₁(1) = Columbus (2)</span></td>
+</tr>
+<tr class="even">
+<td class="grup-a" style="text-align: left;">New York (1)</td>
+<td style="text-align: left;">Nashville (3)</td>
+<td style="text-align: right;">900</td>
+<td style="text-align: right;">2220</td>
+<td style="text-align: left;">900 + 2220 = 3120</td>
+</tr>
+<tr class="odd">
+<td class="grup-a" style="text-align: left;">New York (1)</td>
+<td style="text-align: left;">Louisville (4)</td>
+<td style="text-align: right;">770</td>
+<td style="text-align: right;">2150</td>
+<td style="text-align: left;">770 + 2150 = 2920</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cevap: 2870 km.</strong></p>
+<hr />
+<h2 id="rota-nerede">9. Rota nerede?</h2>
+<p>Elimizde <strong>2870</strong> sayısı var. Ama Joe’ya “2870” demek
+fayda etmez, hangi şehirlerden geçeceğini söylemek lazım.</p>
+<p>Rota, hesabın içinde değil — <strong>yıldızların içinde.</strong>
+Şimdi soldan sağa yıldızları takip ediyoruz:</p>
+<pre><code>   f₁(1)&#39;de yıldız c₁₂&#39;de     →  Columbus&#39;a git      (2)
+   f₂(2)&#39;de yıldız c₂₅&#39;te     →  Kansas City&#39;ye git  (5)
+   f₃(5)&#39;te yıldız c₅₈&#39;de     →  Denver&#39;a git        (8)
+   f₄(8) zaten son bacak      →  Los Angeles         (10)</code></pre>
+<pre><code>  New York ──550──→ Columbus ──680──→ Kansas City ──610──→ Denver ──1030──→ Los Angeles
+     (1)              (2)                 (5)               (8)               (10)
+
+              550 + 680 + 610 + 1030 = 2870 ✓</code></pre>
+<p><strong>Cevap: 1 → 2 → 5 → 8 → 10, toplam 2870 km.</strong></p>
+<p>Başlangıçtaki soru işaretlerinin hepsi doldu:</p>
+<pre><code>                     [2320]*         [1640]*        [1030]*
+                    Columbus       Kansas City      Denver
+                       (2)             (5)            (8)
+
+     [2870]*         [2220]          [1570]                        [ 0 ]*
+    New York        Nashville         Omaha                      Los Angeles
+       (1)             (3)             (6)                          (10)
+
+                     [2150]          [1660]         [1390]
+                   Louisville        Dallas       San Antonio
+                       (4)             (7)            (9)
+
+
+   * = optimal rotanın geçtiği şehirler (slayttaki yıldızın aynısı)
+   Her kutu &quot;buradan sonrası kaç km?&quot; sorusunun cevabı.
+   New York&#39;unki, aradığımız sayı: 2870.</code></pre>
+<p>Dikkat: sadece bir rota bulmadık — <strong>her şehir için</strong>
+cevap ürettik. Joe’yu Omaha’ya bıraksanız, cevap orada hazır bekliyor:
+1570.</p>
+<blockquote>
+<p><strong>Sınav uyarısı:</strong> Hesabı sağdan sola yaptık, rotayı
+soldan sağa okuduk. Yıldızları işaretlemeyi unutan öğrenci, doğru sayıyı
+bulup rotayı söyleyemez — ve o soru yarım puan alır. Her kümede kazanan
+satırı işaretleyin.</p>
+</blockquote>
+<blockquote>
+<p><strong>☕ Ara not — 20 dakikada, kahve içerken</strong></p>
+<p>En kısa yol probleminin en ünlü çözümü <strong>Dijkstra
+algoritması</strong>. Edsger Dijkstra onu 1956’da Amsterdam’da,
+nişanlısıyla alışverişteyken bir kafe terasında, <strong>yirmi
+dakikada</strong> tasarladı. Yanında kâğıt kalem yoktu.</p>
+<p>Sonradan diyor ki: kâğıt olmadığı için her şeyi kafada tutmak zorunda
+kaldım, bu da beni gereksiz her ayrıntıyı atmaya zorladı — algoritmanın
+bu kadar sade olmasının sebebi bu. Üç sayfalık makaleyi ancak 1959’da
+yayımladı; “yayımlanacak kadar önemli mi” diye emin olamamış.</p>
+<p>Telefonunuzdaki navigasyon uygulamasının atası, kalemsiz kâğıtsız,
+bir kahve molasında doğdu.</p>
+</blockquote>
+<hr />
+<h2 id="peki-gerçekten-kârlı-mı">10. Peki gerçekten kârlı mı?</h2>
+<p>Bu problemde sayalım:</p>
+<pre><code>   Hepsini dene   : 18 yol × 3 toplama                 = 54
+   Bizim yöntem   : 3. sütun 3×2 = 6
+                    2. sütun 3×3 = 9
+                    1. sütun 1×3 = 3                   = 18</code></pre>
+<p>3 kat. Açıkçası etkileyici değil. Ama hocanın büyük ağında (27 şehir,
+7 sütun, ara sütunlarda 5’er şehir):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Yöntem</th>
+<th>Toplama sayısı</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hepsini dene (5⁵ = 3125 yol × 5)</td>
+<td><strong>15.625</strong></td>
+</tr>
+<tr class="even">
+<td>Geriye doğru özyineleme (4 × (5 şehir × 5 seçenek) + 5)</td>
+<td><strong>105</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>150 kat fark.</strong> Üstelik bu bir “sabit kat” değil, ağı
+büyüttükçe makas daha da açılıyor. Sebebi yapısal:</p>
+<pre><code>   Hepsini deneme  →  YOL sayısıyla büyür  →  sütunlar boyunca ÇARPILIR  →  patlar
+   Özyineleme      →  ŞEHİR sayısıyla büyür →  sütunlar boyunca TOPLANIR  →  ılımlı</code></pre>
+<pre><code>   TAM SAYIM — ağaç dallanır, aynı işi defalarca yapar
+
+     New York
+       ├─ Columbus ──┬─ Kansas City ─┬─ Denver ────── LA
+       │             │               └─ San Antonio ─ LA
+       │             ├─ Omaha ───────┬─ Denver ────── LA
+       │             │               └─ San Antonio ─ LA
+       │             └─ Dallas ──────┬─ Denver ────── LA
+       │                             └─ San Antonio ─ LA
+       ├─ Nashville  ─── (yukarıdaki ağacın AYNISI, bir daha)
+       └─ Louisville ─── (ve bir daha)
+
+                        18 yaprak, bol bol tekrar
+
+
+   ÖZYİNELEME — dallanma yok, her şehir hayatında BİR KEZ etiketlenir
+
+     New York     Columbus     Kansas City   Denver        LA
+                  Nashville    Omaha         San Antonio
+                  Louisville   Dallas
+
+     ◄──────────────────────────────────────────────────────
+     sağdan sola tek geçiş — toplam 10 etiket, hepsi bu</code></pre>
+<p>Bir problemi “çarpma”dan “toplama”ya çevirmek — mühendislikte bundan
+iyi takas azdır.</p>
+<hr />
+<h2 id="az-önce-ne-yaptınız">11. Az önce ne yaptınız?</h2>
+<p>Adı <strong>Dinamik Programlama</strong> (Dynamic Programming, DP).
+Richard Bellman’ın 1950’lerde ortaya koyduğu yöntem.</p>
+<blockquote>
+<p><strong>☕ Ara not — dünyanın en pazarlama odaklı matematik
+ismi</strong></p>
+<p>İsim baştan sona saçma: ne “dinamik” bir tarafı var, ne de bildiğimiz
+anlamda “programlama”. Bellman bunu anılarında itiraf ediyor. 1950’lerde
+RAND’da çalışıyor, parayı veren Savunma Bakanlığı ve bakan Charles
+Wilson’ın <strong>“araştırma” kelimesine karşı patolojik bir
+nefreti</strong> var — bütçesinde matematik araştırması görürse projeyi
+kesiyor.</p>
+<p>Bellman da isim uyduruyor. “Dinamik” seçmiş, çünkü <em>“kimse bu
+kelimeyi aşağılayıcı biçimde kullanamaz”</em> — kulağa hep olumlu
+geliyor. “Programlama”yı da askeri planlama-çizelgeleme jargonundan
+almış. Yani bugün dünyanın her mühendislik fakültesinde okutulan bu
+ismin tek gerekçesi, bir bakanı atlatmak.</p>
+<p>Ders: bir konunun adı size hiçbir şey anlatmıyorsa, suç sizde
+olmayabilir.</p>
+</blockquote>
+<p>Yaptığınız şeyin tarifi dört satır:</p>
+<pre><code>   1.  Problemi AŞAMALARA böl.               (sütunlar = günler)
+   2.  Her aşamada DURUMU tanımla.           (durum = bulunduğun şehir)
+   3.  SONDAN başla, geriye doğru gel.       (f_t için f_{t+1} lazım)
+   4.  Her hücrede:  yol + sonraki etiket,   en küçüğü seç, YILDIZLA.</code></pre>
+<p>Bu kalıp sadece haritalarda çalışmıyor. Aynı dört satırla çözülen
+klasik problemler: makine yenileme (kaç yıl sonra değiştirmeli),
+envanter planlama (bu ay ne kadar üretmeli), sırt çantası problemi
+(hangi ürünleri koymalı), kaynak dağıtımı. Hepsinde “aşama”, “durum” ve
+“buradan sonrası” vardır.</p>
+<hr />
+<h2 id="en-sık-yapılan-üç-hata">12. En sık yapılan üç hata</h2>
+<pre><code>  ✗  Etiketi &quot;buraya kadar geldiğim yol&quot; sanmak.
+     → Etiket HER ZAMAN &quot;buradan sonrası&quot;. Kalan yol, harcanan değil.
+
+  ✗  Soldan sağa başlamak.
+     → New York&#39;un etiketi için 2. sütun lazım, o daha hesaplanmadı.
+        Sağdan başla.
+
+  ✗  Yıldızları işaretlememek.
+     → Sayı bulunur, rota kaybolur.</code></pre>
+<p>Bir de dördüncüsü, en sinsisi:</p>
+<pre><code>  ✗  Optimallik ilkesini kontrol etmeden DP&#39;ye girişmek.
+     → &quot;Nereden geldiğim, buradan sonra ne yapacağımı değiştiriyor mu?&quot;
+        Değiştiriyorsa (yorgunluk, kalan yakıt, kalan bütçe...) şehir tek
+        başına DURUM olamaz. Yöntem değil, durum tanımı yanlıştır.</code></pre>
+<blockquote>
+<p><strong>☕ Ara not — aynı adam, yöntemin sınırına da isim
+koydu</strong></p>
+<p>Bellman sadece “dinamik programlama”yı adlandırmadı; yöntemin çöktüğü
+yere de bir isim taktı: <strong>boyutun laneti</strong> (<em>curse of
+dimensionality</em>).</p>
+<p>Sebebi tam da yukarıdaki dördüncü hata. Durum tek bir şeyse (şehir)
+tablo küçük: 10 satır. Ama duruma bir şey daha eklerseniz — kalan yakıt,
+kalan gün, depodaki stok — tablo satır sayısı
+<strong>çarpılarak</strong> büyür:</p>
+<pre><code>   durum = şehir                        →     10 satır
+   durum = şehir + kalan yakıt (20 kade.)→    200 satır
+   durum = şehir + yakıt + kalan gün (7) →  1.400 satır</code></pre>
+<p>Yani DP, tam sayımın patlamasını yendi ama patlamaya karşı bağışık
+değil — sadece patlamayı <strong>durum uzayına</strong> taşıdı. Bu
+yüzden DP’de asıl ustalık hesabı yapmakta değil, <strong>durumu
+olabildiğince küçük tanımlamakta.</strong></p>
+<p>Bu cümleyi şimdilik bir kenara yazın; ileri derslerde (envanter,
+makine yenileme, pekiştirmeli öğrenme) tam olarak bu sorunla
+boğuşacaksınız.</p>
+</blockquote>
+<hr />
+<h2 id="kendini-sına">13. Kendini sına</h2>
+<details>
+<summary>
+<b>ALIŞTIRMA 1</b> — Joe, Nashville’de mahsur kaldı. Kalan en kısa yolu
+ve rotayı söyle. (aç: tıkla · nvim: za)
+</summary>
+<p>Tablodan doğrudan okunur: <strong>f₂(3) = 2220</strong>, yıldız
+Kansas City’de.</p>
+<p>Rota: Nashville → Kansas City → Denver → Los Angeles
+<code>580 + 610 + 1030 = 2220</code> ✓</p>
+<p>Dikkat edin: yeni bir hesap yapmadık. Etiketler zaten “her şehir
+için” cevap veriyor — bu yüzden DP tek bir soruyu değil, aynı anda
+hepsini çözer.</p>
+</details>
+<details>
+<summary>
+<b>ALIŞTIRMA 2</b> — Dallas–San Antonio yolu 270’ten 100’e düşerse cevap
+değişir mi? (aç: tıkla · nvim: za)
+</summary>
+<p>Dallas’ın etiketi düşer: <code>100 + 1390 = 1490</code> (Denver’lı
+seçenek 1820, hâlâ kaybediyor). Yani <code>f₃(7) = 1490</code>.</p>
+<p>Şimdi 2. sütunu tekrar bakalım — Dallas’lı satırlar 170 azalır:</p>
+<pre><code>   f₂(2) : 1050 + 1490 = 2540   (hâlâ 2320&#39;nin gerisinde)
+   f₂(3) :  660 + 1490 = 2150   ★  yeni kazanan! (eski: 2220)
+   f₂(4) :  830 + 1490 = 2320   (hâlâ 2150&#39;nin gerisinde)</code></pre>
+<p>Nashville’in etiketi 2220 → 2150 oldu. Peki final?</p>
+<pre><code>   f₁(1) : 550 + 2320 = 2870 ★ ,  900 + 2150 = 3050 ,  770 + 2150 = 2920</code></pre>
+<p><strong>Cevap değişmedi: 2870, aynı rota.</strong> Nashville iyileşti
+ama New York’tan oraya gitmek zaten çok pahalıydı (900).</p>
+<p>Ders: bir sayıyı değiştirmek zincirin tamamını sarsar, ama sonuç her
+zaman değişmez. Kontrol etmenin tek yolu hesabı tekrarlamak — göz kararı
+olmaz.</p>
+</details>
+<details>
+<summary>
+<b>ALIŞTIRMA 3</b> — En kısa değil de <b>en uzun</b> yol istenseydi ne
+değişirdi? (aç: tıkla · nvim: za)
+</summary>
+<p>Tek bir şey: <code>min</code> yerine <code>max</code> yazılır.
+Yöntemin geri kalanı harfi harfine aynıdır — aşamalar, durumlar, geriye
+doğru gitmek, yıldızlar.</p>
+<p>(Denemek isteyen: 4. sütun aynı kalır, 3. sütunda artık büyük olan
+yıldızlanır.)</p>
+</details>
+<hr />
+<h2 id="sözlük">Sözlük</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Terim</th>
+<th>Türkçesi / anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Aşama</strong> (stage)</td>
+<td>Problemin bölündüğü adımlar. Burada: sütunlar, yani günler</td>
+</tr>
+<tr class="even">
+<td><strong>Durum</strong> (state)</td>
+<td>Bir aşamada nerede olduğun. Burada: şehir</td>
+</tr>
+<tr class="odd">
+<td><strong>cᵢⱼ</strong></td>
+<td>i’den j’ye yolun uzunluğu</td>
+</tr>
+<tr class="even">
+<td><strong>fₜ(i)</strong></td>
+<td>i şehrinin etiketi: <strong>buradan sonra</strong> kalan en kısa
+yol</td>
+</tr>
+<tr class="odd">
+<td><strong>Geriye doğru özyineleme</strong></td>
+<td>Sondan başlayıp başa doğru etiketleri doldurmak</td>
+</tr>
+<tr class="even">
+<td><strong>Optimallik ilkesi</strong></td>
+<td>“Nereden geldiğin değil, nerede olduğun önemli”</td>
+</tr>
+<tr class="odd">
+<td><strong>Tam sayım</strong> (enumeration)</td>
+<td>Bütün yolları tek tek deneme. Doğru ama pahalı</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="kaynak">Kaynak</h2>
+<p>Video: <em>OR2 — Dinamik Programlama Giriş</em>, 2 Eylül 2020.
+Problem videoda <strong>15:30</strong>’da başlıyor,
+<strong>29:00</strong>’da bitiyor. <a href="https://www.youtube.com/watch?v=S8uf7sBtZyM" class="uri">https://www.youtube.com/watch?v=S8uf7sBtZyM</a></p>
+<p>Kitap: Winston, <em>Operations Research: Applications and
+Algorithms</em>, bölüm 18. Problem ve sayılar oradan; anlatım, tablolar
+ve şema bu notun yazarına ait.</p>
+<p>Buradaki her sayı bir betikle yeniden hesaplanıp denetlendi — 2870 ve
+güzergâh elle değil, makineyle doğrulanmış.</p>
+<!-- vim: set foldmethod=marker foldmarker=<details>,</details> foldlevel=99 foldcolumn=2 : -->
+</body>
+</html>
