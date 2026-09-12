@@ -145,6 +145,34 @@ padding: 0 .2em;
 .tahta-baslik { color: #444; }
 .tahta mark { color: #000; background: #eee; }
 }
+
+html { scroll-behavior: smooth; }
+[id^="sema-"], [id^="satir-"] { scroll-margin-top: 1.5rem; }
+
+a.sema {
+display: inline-block;
+font-size: .78em; font-weight: 600; letter-spacing: .01em;
+color: #1f8a55; background: #e6f4ec;
+border: 1px solid #1f8a55; border-radius: 999px;
+padding: .08em .6em; text-decoration: none; white-space: nowrap;
+}
+a.sema:hover { background: #1f8a55; color: #fff; }
+td.ozet a.sema { margin-top: 1.1em; }
+@media (prefers-color-scheme: dark) {
+a.sema { color: #4cc38a; background: #17311f; border-color: #4cc38a; }
+a.sema:hover { background: #4cc38a; color: #10141a; }
+}
+figure.sema { margin: 1.6em 0; padding: 0; }
+figure.sema p { margin: 0; }
+figure.sema figcaption { text-align: right; font-size: .85rem; margin-top: .2em; }
+figure.sema figcaption a { text-decoration: none; color: var(--muted); }
+figure.sema figcaption a:hover { color: var(--accent); text-decoration: underline; }
+:target { animation: hedef 2.2s ease-out; border-radius: 4px; }
+@keyframes hedef {
+0% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 55%, transparent); }
+100% { box-shadow: 0 0 0 5px transparent; }
+}
+@media print { a.sema, figure.sema figcaption { display: none; } }
 #TOC { font-size: .92rem; }
 #TOC a { text-decoration: none; }
 @media print {
@@ -336,9 +364,9 @@ bir bacak, üstündeki sayı o bacağın mili:</p>
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -350,9 +378,9 @@ bir bacak, üstündeki sayı o bacağın mili:</p>
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -374,13 +402,13 @@ bir bacak, üstündeki sayı o bacağın mili:</p>
 }
 </style>
 <defs>
-  <marker id="net-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr" x="50" y="18">1. sütun</text>
@@ -389,98 +417,98 @@ bir bacak, üstündeki sayı o bacağın mili:</p>
 <text class="hdr" x="521" y="18">4. sütun</text>
 <text class="hdr" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net-arrow)"></line>
-<line class="edge" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net-arrow)"></line>
+<line class="edge" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net-arrow)"></line>
 </g>
 <g class="labels">
-<g class="lbl"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl"><rect x="285" y="164" width="39" height="16"></rect><text x="305" y="176">1050</text></g>
+<g class="lbl"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
 </g>
 <g class="nodes">
 <g>
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g>
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g>
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g>
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g>
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
@@ -636,9 +664,9 @@ de “yol + sıfır” — yani yolun kendisi:</p>
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -650,9 +678,9 @@ de “yol + sıfır” — yani yolun kendisi:</p>
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -674,13 +702,13 @@ de “yol + sıfır” — yani yolun kendisi:</p>
 }
 </style>
 <defs>
-  <marker id="net89-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net89-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net89-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net89-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net89-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net89-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net89-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net89-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -689,108 +717,108 @@ de “yol + sıfır” — yani yolun kendisi:</p>
 <text class="hdr" x="521" y="18">4. sütun</text>
 <text class="hdr" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net89-arrow-dim)"></line>
-<line class="edge c-edge" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net89-arrow-c)"></line>
-<line class="edge c-edge" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net89-arrow-c)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge c-edge" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net89-arrow-c)"></line>
+<line class="edge c-edge" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net89-arrow-c)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl c-lbl"><rect x="544" y="124" width="111" height="16"></rect><text x="599" y="132">c(8→10) = 1030</text></g>
-<g class="lbl c-lbl"><rect x="544" y="164" width="111" height="16"></rect><text x="599" y="172">c(9→10) = 1390</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl dim"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl dim"><rect x="285" y="164" width="39" height="16"></rect><text x="305" y="176">1050</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl c-lbl"><rect x="543" y="124" width="111" height="16"></rect><text x="599" y="136">c(8→10) = 1030</text></g>
+<g class="lbl c-lbl"><rect x="535" y="157" width="111" height="16"></rect><text x="590" y="169">c(9→10) = 1390</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g class="here">
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g class="here">
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g>
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="638" y="189" width="80" height="18"></rect><text x="643" y="198">f₅(10) = 0</text></g>
+<g class="f-tag"><rect x="638" y="189" width="80" height="20"></rect><text x="643" y="203.2">f₅(10) = 0</text></g>
 </g>
 <g class="sum">
-<text class="who" x="300" y="290">4. sütun — seçim yok, her şehirden tek yol; yine de yol + etiket:</text>
-<text x="300" y="314"><tspan class="who">Denver → Los Angeles:  </tspan><tspan>c(8→10) + f₅(10)  =  </tspan><tspan class="c">1030</tspan><tspan>  +  </tspan><tspan class="f">0</tspan><tspan>  =  </tspan><tspan class>1030</tspan></text>
-<text x="300" y="336"><tspan class="who">San Antonio → Los Angeles:  </tspan><tspan>c(9→10) + f₅(10)  =  </tspan><tspan class="c">1390</tspan><tspan>  +  </tspan><tspan class="f">0</tspan><tspan>  =  </tspan><tspan class>1390</tspan></text>
+<text class="who" x="300" y="294">4. sütun — seçim yok, her şehirden tek yol; yine de yol + etiket:</text>
+<text x="300" y="318"><tspan class="who">Denver → Los Angeles:  </tspan><tspan>c(8→10) + f₅(10)  =  </tspan><tspan class="c">1030</tspan><tspan>  +  </tspan><tspan class="f">0</tspan><tspan>  =  </tspan><tspan class>1030</tspan></text>
+<text x="300" y="340"><tspan class="who">San Antonio → Los Angeles:  </tspan><tspan>c(9→10) + f₅(10)  =  </tspan><tspan class="c">1390</tspan><tspan>  +  </tspan><tspan class="f">0</tspan><tspan>  =  </tspan><tspan class>1390</tspan></text>
 </g>
 </svg>
 </p>
@@ -811,7 +839,8 @@ City’den çıkan iki yol (<code>c₅₈ = 610</code>, <code>c₅₉ = 790</cod
 (<code>f₄(8)</code>, <code>f₄(9)</code>). Her satır bir turuncu ile bir
 yeşilin toplamı; kazanan seçeneğin yeşil kutusunda ★ — ilgisiz her şey
 silik:</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net5-title" class="figure network">
+<figure class="sema" id="sema-f3-5">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net5-title" class="figure network">
 <title id="net5-title">Kansas City için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -819,9 +848,9 @@ silik:</p>
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -833,9 +862,9 @@ silik:</p>
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -857,13 +886,13 @@ silik:</p>
 }
 </style>
 <defs>
-  <marker id="net5-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net5-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net5-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net5-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net5-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net5-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net5-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net5-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -872,112 +901,116 @@ silik:</p>
 <text class="hdr" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge c-edge" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net5-arrow-c)"></line>
-<line class="edge c-edge" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net5-arrow-c)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net5-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge c-edge" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net5-arrow-c)"></line>
+<line class="edge c-edge" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net5-arrow-c)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net5-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net5-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="389" y="200" width="32" height="16"></rect><text x="405" y="208">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="392" y="80" width="75" height="16"></rect><text x="430" y="88">c₅₈ = 610</text></g>
-<g class="lbl c-lbl"><rect x="392" y="112" width="75" height="16"></rect><text x="430" y="120">c₅₉ = 790</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl dim"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl dim"><rect x="285" y="164" width="39" height="16"></rect><text x="305" y="176">1050</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="457" y="116" width="32" height="16"></rect><text x="472" y="128">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="394" y="71" width="75" height="16"></rect><text x="432" y="83">c₅₈ = 610</text></g>
+<g class="lbl c-lbl"><rect x="379" y="104" width="75" height="16"></rect><text x="416" y="116">c₅₉ = 790</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g class="here">
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text><text class="star" x="637" y="120">★</text></g>
-<g class="f-tag"><rect x="543" y="166" width="94" height="18"></rect><text x="548" y="175">f₄(9) = 1390</text></g>
+<g class="f-tag"><rect x="544" y="120" width="94" height="20"></rect><text x="549" y="134.2">f₄(8) = 1030</text><text class="star" x="645" y="119">★</text></g>
+<g class="f-tag"><rect x="544" y="166" width="94" height="20"></rect><text x="549" y="180.2">f₄(9) = 1390</text></g>
 </g>
 <g class="sum">
-<text class="who" x="300" y="290">Kansas City’den çıkan her seçenek — yol + etiket:</text>
-<text x="300" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₅₈ + f₄(8)  =  </tspan><tspan class="c">610</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1640  ★</tspan></text>
-<text x="300" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₅₉ + f₄(9)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2180</tspan></text>
+<text class="who" x="300" y="294">Kansas City’den çıkan her seçenek — yol + etiket:</text>
+<text x="300" y="318"><tspan class="who">Denver’a:  </tspan><tspan>c₅₈ + f₄(8)  =  </tspan><tspan class="c">610</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1640  ★</tspan></text>
+<text x="300" y="340"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₅₉ + f₄(9)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2180</tspan></text>
 </g>
 </svg>
-</p>
+
+<figcaption>
+<a href="#satir-f3-5">↩︎ tabloya dön</a>
+</figcaption>
+</figure>
 <p>Yıldız (★) kazanan satırı işaretler. <strong>Yıldızı işaretlemeyi
 asla unutmayın</strong>, birazdan neden anlaşılacak.</p>
 <p><code>f₃(5) = 1640</code>. Bunu şöyle okuyun: <em>“Kansas City’de
@@ -991,7 +1024,8 @@ olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
    f₃(6)  =   ⎨
               ⎩ San Antonio&#39;ya: c₆₉ + f₄(9) = 940 + 1390 = 2330</code></pre>
 <p><strong>f₃(6) = 1570</strong>, Denver’a gidilir.</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net6-title" class="figure network">
+<figure class="sema" id="sema-f3-6">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net6-title" class="figure network">
 <title id="net6-title">Omaha için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -999,9 +1033,9 @@ olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -1013,9 +1047,9 @@ olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -1037,13 +1071,13 @@ olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
 }
 </style>
 <defs>
-  <marker id="net6-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net6-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net6-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net6-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net6-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net6-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net6-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net6-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -1052,112 +1086,116 @@ olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
 <text class="hdr" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge c-edge" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net6-arrow-c)"></line>
-<line class="edge c-edge" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net6-arrow-c)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net6-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge c-edge" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net6-arrow-c)"></line>
+<line class="edge c-edge" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net6-arrow-c)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net6-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="389" y="200" width="32" height="16"></rect><text x="405" y="208">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="392" y="128" width="75" height="16"></rect><text x="430" y="136">c₆₈ = 540</text></g>
-<g class="lbl c-lbl"><rect x="392" y="160" width="75" height="16"></rect><text x="430" y="168">c₆₉ = 940</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl dim"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl dim"><rect x="285" y="164" width="39" height="16"></rect><text x="305" y="176">1050</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="387" y="94" width="32" height="16"></rect><text x="403" y="106">790</text></g>
+<g class="lbl dim"><rect x="387" y="194" width="32" height="16"></rect><text x="403" y="206">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="392" y="127" width="75" height="16"></rect><text x="430" y="139">c₆₈ = 540</text></g>
+<g class="lbl c-lbl"><rect x="392" y="161" width="75" height="16"></rect><text x="430" y="173">c₆₉ = 940</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g class="here">
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text><text class="star" x="637" y="120">★</text></g>
-<g class="f-tag"><rect x="543" y="166" width="94" height="18"></rect><text x="548" y="175">f₄(9) = 1390</text></g>
+<g class="f-tag"><rect x="544" y="120" width="94" height="20"></rect><text x="549" y="134.2">f₄(8) = 1030</text><text class="star" x="645" y="119">★</text></g>
+<g class="f-tag"><rect x="544" y="166" width="94" height="20"></rect><text x="549" y="180.2">f₄(9) = 1390</text></g>
 </g>
 <g class="sum">
-<text class="who" x="300" y="290">Omaha’dan çıkan her seçenek — yol + etiket:</text>
-<text x="300" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₆₈ + f₄(8)  =  </tspan><tspan class="c">540</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1570  ★</tspan></text>
-<text x="300" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₆₉ + f₄(9)  =  </tspan><tspan class="c">940</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2330</tspan></text>
+<text class="who" x="300" y="294">Omaha’dan çıkan her seçenek — yol + etiket:</text>
+<text x="300" y="318"><tspan class="who">Denver’a:  </tspan><tspan>c₆₈ + f₄(8)  =  </tspan><tspan class="c">540</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1570  ★</tspan></text>
+<text x="300" y="340"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₆₉ + f₄(9)  =  </tspan><tspan class="c">940</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2330</tspan></text>
 </g>
 </svg>
-</p>
+
+<figcaption>
+<a href="#satir-f3-6">↩︎ tabloya dön</a>
+</figcaption>
+</figure>
 </details>
 <details>
 <summary>
@@ -1178,7 +1216,8 @@ sorusundaki tuzağın aynısı.</p>
 <p>Şemada da görünüyor: kısa turuncu ok (270) büyük yeşil kutuya (1390)
 çıkıyor, uzun turuncu ok (790) küçük yeşile (1030). Toplamlar birbirine
 yaklaşıyor:</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net7-title" class="figure network">
+<figure class="sema" id="sema-f3-7">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net7-title" class="figure network">
 <title id="net7-title">Dallas için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -1186,9 +1225,9 @@ yaklaşıyor:</p>
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -1200,9 +1239,9 @@ yaklaşıyor:</p>
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -1224,13 +1263,13 @@ yaklaşıyor:</p>
 }
 </style>
 <defs>
-  <marker id="net7-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net7-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net7-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net7-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net7-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net7-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net7-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net7-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -1239,112 +1278,116 @@ yaklaşıyor:</p>
 <text class="hdr" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge c-edge" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net7-arrow-c)"></line>
-<line class="edge c-edge" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net7-arrow-c)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net7-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge c-edge" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net7-arrow-c)"></line>
+<line class="edge c-edge" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net7-arrow-c)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net7-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="392" y="176" width="75" height="16"></rect><text x="430" y="184">c₇₈ = 790</text></g>
-<g class="lbl c-lbl"><rect x="392" y="208" width="75" height="16"></rect><text x="430" y="216">c₇₉ = 270</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl dim"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl dim"><rect x="285" y="164" width="39" height="16"></rect><text x="305" y="176">1050</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="389" y="154" width="32" height="16"></rect><text x="405" y="166">940</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="391" y="187" width="75" height="16"></rect><text x="428" y="199">c₇₈ = 790</text></g>
+<g class="lbl c-lbl"><rect x="394" y="217" width="75" height="16"></rect><text x="432" y="229">c₇₉ = 270</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g class="here">
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g>
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text></g>
-<g class="f-tag"><rect x="543" y="166" width="94" height="18"></rect><text x="548" y="175">f₄(9) = 1390</text><text class="star" x="637" y="166">★</text></g>
+<g class="f-tag"><rect x="544" y="120" width="94" height="20"></rect><text x="549" y="134.2">f₄(8) = 1030</text></g>
+<g class="f-tag"><rect x="544" y="166" width="94" height="20"></rect><text x="549" y="180.2">f₄(9) = 1390</text><text class="star" x="645" y="165">★</text></g>
 </g>
 <g class="sum">
-<text class="who" x="300" y="290">Dallas’tan çıkan her seçenek — yol + etiket:</text>
-<text x="300" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₇₈ + f₄(8)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class>1820</tspan></text>
-<text x="300" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₇₉ + f₄(9)  =  </tspan><tspan class="c">270</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class="win">1660  ★</tspan></text>
+<text class="who" x="300" y="294">Dallas’tan çıkan her seçenek — yol + etiket:</text>
+<text x="300" y="318"><tspan class="who">Denver’a:  </tspan><tspan>c₇₈ + f₄(8)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class>1820</tspan></text>
+<text x="300" y="340"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₇₉ + f₄(9)  =  </tspan><tspan class="c">270</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class="win">1660  ★</tspan></text>
 </g>
 </svg>
-</p>
+
+<figcaption>
+<a href="#satir-f3-7">↩︎ tabloya dön</a>
+</figcaption>
+</figure>
 </details>
 <p>Üçünün tam dökümü — her şehir için iki seçenek, kazanan işaretli:</p>
 <table style="width:100%;">
@@ -1374,7 +1417,7 @@ yaklaşıyor:</p>
 <td style="text-align: right;">1030</td>
 <td style="text-align: left;"><span class="kazanan">610 + 1030 = 1640
 ★</span></td>
-<td class="ozet" rowspan="2"><span class="kazanan">f₃(5) = 1640<br>x₃(5) = Denver (8)</span></td>
+<td class="ozet" rowspan="2"><span class="kazanan"><span id="satir-f3-5">f₃(5) = 1640</span><br>x₃(5) = Denver (8)<br><a href="#sema-f3-5" class="sema">şema ↗</a></span></td>
 </tr>
 <tr class="even">
 <td class="grup-a" style="text-align: left;">Kansas City (5)</td>
@@ -1390,7 +1433,7 @@ yaklaşıyor:</p>
 <td style="text-align: right;">1030</td>
 <td style="text-align: left;"><span class="kazanan">540 + 1030 = 1570
 ★</span></td>
-<td class="ozet" rowspan="2"><span class="kazanan">f₃(6) = 1570<br>x₃(6) = Denver (8)</span></td>
+<td class="ozet" rowspan="2"><span class="kazanan"><span id="satir-f3-6">f₃(6) = 1570</span><br>x₃(6) = Denver (8)<br><a href="#sema-f3-6" class="sema">şema ↗</a></span></td>
 </tr>
 <tr class="even">
 <td class="grup-b" style="text-align: left;">Omaha (6)</td>
@@ -1405,7 +1448,7 @@ yaklaşıyor:</p>
 <td style="text-align: right;">790</td>
 <td style="text-align: right;">1030</td>
 <td style="text-align: left;">790 + 1030 = 1820</td>
-<td class="ozet" rowspan="2"><span class="kazanan">f₃(7) = 1660<br>x₃(7) = San Antonio (9)</span></td>
+<td class="ozet" rowspan="2"><span class="kazanan"><span id="satir-f3-7">f₃(7) = 1660</span><br>x₃(7) = San Antonio (9)<br><a href="#sema-f3-7" class="sema">şema ↗</a></span></td>
 </tr>
 <tr class="even">
 <td class="grup-a" style="text-align: left;">Dallas (7)</td>
@@ -1513,7 +1556,8 @@ etiketlerini kullanıyoruz.</p>
 <p>Bu kez üç turuncu ok, üç yeşil kutu. Yeşil kutulardaki sayılar az
 önce kendimizin hesapladığı <code>f₃</code> etiketleri — 3. sütunun
 arkasındaki dünya artık üç sayıya inmiş:</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net2-title" class="figure network">
+<figure class="sema" id="sema-f2-2">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net2-title" class="figure network">
 <title id="net2-title">Columbus için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -1521,9 +1565,9 @@ arkasındaki dünya artık üç sayıya inmiş:</p>
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -1535,9 +1579,9 @@ arkasındaki dünya artık üç sayıya inmiş:</p>
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -1559,13 +1603,13 @@ arkasındaki dünya artık üç sayıya inmiş:</p>
 }
 </style>
 <defs>
-  <marker id="net2-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net2-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net2-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net2-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net2-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net2-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net2-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net2-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -1574,114 +1618,118 @@ arkasındaki dünya artık üç sayıya inmiş:</p>
 <text class="hdr dim" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge c-edge" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net2-arrow-c)"></line>
-<line class="edge c-edge" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net2-arrow-c)"></line>
-<line class="edge c-edge" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net2-arrow-c)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net2-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge c-edge" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net2-arrow-c)"></line>
+<line class="edge c-edge" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net2-arrow-c)"></line>
+<line class="edge c-edge" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net2-arrow-c)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net2-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="300" y="84" width="32" height="16"></rect><text x="316" y="92">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="248" y="64" width="75" height="16"></rect><text x="285" y="72">c₂₅ = 680</text></g>
-<g class="lbl c-lbl"><rect x="229" y="92" width="75" height="16"></rect><text x="266" y="100">c₂₆ = 790</text></g>
-<g class="lbl c-lbl"><rect x="232" y="128" width="82" height="16"></rect><text x="273" y="136">c₂₇ = 1050</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="244" y="117" width="32" height="16"></rect><text x="260" y="129">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="282" y="131" width="32" height="16"></rect><text x="298" y="143">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="235" y="64" width="75" height="16"></rect><text x="273" y="76">c₂₅ = 680</text></g>
+<g class="lbl c-lbl"><rect x="258" y="98" width="75" height="16"></rect><text x="295" y="110">c₂₆ = 790</text></g>
+<g class="lbl c-lbl"><rect x="250" y="164" width="82" height="16"></rect><text x="291" y="176">c₂₇ = 1050</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="here">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="386" y="80" width="94" height="18"></rect><text x="391" y="89">f₃(5) = 1640</text><text class="star" x="480" y="80">★</text></g>
-<g class="f-tag"><rect x="386" y="126" width="94" height="18"></rect><text x="391" y="135">f₃(6) = 1570</text></g>
-<g class="f-tag"><rect x="386" y="206" width="94" height="18"></rect><text x="391" y="215">f₃(7) = 1660</text></g>
+<g class="f-tag"><rect x="387" y="80" width="94" height="20"></rect><text x="392" y="94.2">f₃(5) = 1640</text><text class="star" x="488" y="79">★</text></g>
+<g class="f-tag"><rect x="387" y="126" width="94" height="20"></rect><text x="392" y="140.2">f₃(6) = 1570</text></g>
+<g class="f-tag"><rect x="387" y="206" width="94" height="20"></rect><text x="392" y="220.2">f₃(7) = 1660</text></g>
 </g>
 <g class="sum">
-<text class="who" x="167" y="290">Columbus’tan çıkan her seçenek — yol + etiket:</text>
-<text x="167" y="314"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₂₅ + f₃(5)  =  </tspan><tspan class="c">680</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2320  ★</tspan></text>
-<text x="167" y="336"><tspan class="who">Omaha’ya:  </tspan><tspan>c₂₆ + f₃(6)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2360</tspan></text>
-<text x="167" y="358"><tspan class="who">Dallas’a:  </tspan><tspan>c₂₇ + f₃(7)  =  </tspan><tspan class="c">1050</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2710</tspan></text>
+<text class="who" x="167" y="294">Columbus’tan çıkan her seçenek — yol + etiket:</text>
+<text x="167" y="318"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₂₅ + f₃(5)  =  </tspan><tspan class="c">680</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2320  ★</tspan></text>
+<text x="167" y="340"><tspan class="who">Omaha’ya:  </tspan><tspan>c₂₆ + f₃(6)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2360</tspan></text>
+<text x="167" y="362"><tspan class="who">Dallas’a:  </tspan><tspan>c₂₇ + f₃(7)  =  </tspan><tspan class="c">1050</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2710</tspan></text>
 </g>
 </svg>
-</p>
+
+<figcaption>
+<a href="#satir-f2-2">↩︎ tabloya dön</a>
+</figcaption>
+</figure>
 <details>
 <summary>
 <b>SORU 7</b> — Nashville (3) ve Louisville (4) için aynısını yap. (aç:
@@ -1690,7 +1738,8 @@ tıkla · nvim: za)
 <pre><code>              ⎧ c₃₅ + f₃(5) =  580 + 1640 = 2220   ★
    f₂(3)  =   ⎨ c₃₆ + f₃(6) =  760 + 1570 = 2330
               ⎩ c₃₇ + f₃(7) =  660 + 1660 = 2320</code></pre>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net3-title" class="figure network">
+<figure class="sema" id="sema-f2-3">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net3-title" class="figure network">
 <title id="net3-title">Nashville için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -1698,9 +1747,9 @@ tıkla · nvim: za)
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -1712,9 +1761,9 @@ tıkla · nvim: za)
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -1736,13 +1785,13 @@ tıkla · nvim: za)
 }
 </style>
 <defs>
-  <marker id="net3-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net3-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net3-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net3-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net3-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net3-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net3-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net3-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -1751,118 +1800,123 @@ tıkla · nvim: za)
 <text class="hdr dim" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge c-edge" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net3-arrow-c)"></line>
-<line class="edge c-edge" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net3-arrow-c)"></line>
-<line class="edge c-edge" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net3-arrow-c)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net3-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge c-edge" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net3-arrow-c)"></line>
+<line class="edge c-edge" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net3-arrow-c)"></line>
+<line class="edge c-edge" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net3-arrow-c)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net3-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="253" y="128" width="39" height="16"></rect><text x="273" y="136">1050</text></g>
-<g class="lbl dim"><rect x="232" y="192" width="32" height="16"></rect><text x="248" y="200">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="232" y="224" width="32" height="16"></rect><text x="248" y="232">830</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="260" y="96" width="75" height="16"></rect><text x="297" y="104">c₃₅ = 580</text></g>
-<g class="lbl c-lbl"><rect x="229" y="144" width="75" height="16"></rect><text x="266" y="152">c₃₆ = 760</text></g>
-<g class="lbl c-lbl"><rect x="266" y="196" width="75" height="16"></rect><text x="304" y="204">c₃₇ = 660</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="232" y="64" width="32" height="16"></rect><text x="248" y="76">680</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">790</text></g>
+<g class="lbl dim"><rect x="226" y="103" width="39" height="16"></rect><text x="245" y="115">1050</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="231" y="204" width="32" height="16"></rect><text x="247" y="216">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="268" y="83" width="75" height="16"></rect><text x="306" y="95">c₃₅ = 580</text></g>
+<g class="lbl c-lbl"><rect x="235" y="144" width="75" height="16"></rect><text x="273" y="156">c₃₆ = 760</text></g>
+<g class="lbl c-lbl"><rect x="268" y="205" width="75" height="16"></rect><text x="306" y="217">c₃₇ = 660</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="here">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="386" y="80" width="94" height="18"></rect><text x="391" y="89">f₃(5) = 1640</text><text class="star" x="480" y="80">★</text></g>
-<g class="f-tag"><rect x="386" y="126" width="94" height="18"></rect><text x="391" y="135">f₃(6) = 1570</text></g>
-<g class="f-tag"><rect x="386" y="206" width="94" height="18"></rect><text x="391" y="215">f₃(7) = 1660</text></g>
+<g class="f-tag"><rect x="387" y="80" width="94" height="20"></rect><text x="392" y="94.2">f₃(5) = 1640</text><text class="star" x="488" y="79">★</text></g>
+<g class="f-tag"><rect x="387" y="126" width="94" height="20"></rect><text x="392" y="140.2">f₃(6) = 1570</text></g>
+<g class="f-tag"><rect x="387" y="206" width="94" height="20"></rect><text x="392" y="220.2">f₃(7) = 1660</text></g>
 </g>
 <g class="sum">
-<text class="who" x="167" y="290">Nashville’den çıkan her seçenek — yol + etiket:</text>
-<text x="167" y="314"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₃₅ + f₃(5)  =  </tspan><tspan class="c">580</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2220  ★</tspan></text>
-<text x="167" y="336"><tspan class="who">Omaha’ya:  </tspan><tspan>c₃₆ + f₃(6)  =  </tspan><tspan class="c">760</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2330</tspan></text>
-<text x="167" y="358"><tspan class="who">Dallas’a:  </tspan><tspan>c₃₇ + f₃(7)  =  </tspan><tspan class="c">660</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2320</tspan></text>
+<text class="who" x="167" y="294">Nashville’den çıkan her seçenek — yol + etiket:</text>
+<text x="167" y="318"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₃₅ + f₃(5)  =  </tspan><tspan class="c">580</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2220  ★</tspan></text>
+<text x="167" y="340"><tspan class="who">Omaha’ya:  </tspan><tspan>c₃₆ + f₃(6)  =  </tspan><tspan class="c">760</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2330</tspan></text>
+<text x="167" y="362"><tspan class="who">Dallas’a:  </tspan><tspan>c₃₇ + f₃(7)  =  </tspan><tspan class="c">660</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2320</tspan></text>
 </g>
 </svg>
-</p>
+
+<figcaption>
+<a href="#satir-f2-3">↩︎ tabloya dön</a>
+</figcaption>
+</figure>
 <pre><code>              ⎧ c₄₅ + f₃(5) =  510 + 1640 = 2150   ★
    f₂(4)  =   ⎨ c₄₆ + f₃(6) =  700 + 1570 = 2270
               ⎩ c₄₇ + f₃(7) =  830 + 1660 = 2490</code></pre>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net4-title" class="figure network">
+<figure class="sema" id="sema-f2-4">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net4-title" class="figure network">
 <title id="net4-title">Louisville için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -1870,9 +1924,9 @@ tıkla · nvim: za)
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -1884,9 +1938,9 @@ tıkla · nvim: za)
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -1908,13 +1962,13 @@ tıkla · nvim: za)
 }
 </style>
 <defs>
-  <marker id="net4-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net4-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net4-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net4-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net4-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net4-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net4-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net4-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr dim" x="50" y="18">1. sütun</text>
@@ -1923,114 +1977,118 @@ tıkla · nvim: za)
 <text class="hdr dim" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge c-edge" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net4-arrow-c)"></line>
-<line class="edge c-edge" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net4-arrow-c)"></line>
-<line class="edge c-edge" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net4-arrow-c)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net4-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge c-edge" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net4-arrow-c)"></line>
+<line class="edge c-edge" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net4-arrow-c)"></line>
+<line class="edge c-edge" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net4-arrow-c)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net4-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="300" y="204" width="32" height="16"></rect><text x="316" y="212">660</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="235" y="160" width="75" height="16"></rect><text x="273" y="168">c₄₅ = 510</text></g>
-<g class="lbl c-lbl"><rect x="229" y="196" width="75" height="16"></rect><text x="266" y="204">c₄₆ = 700</text></g>
-<g class="lbl c-lbl"><rect x="248" y="224" width="75" height="16"></rect><text x="285" y="232">c₄₇ = 830</text></g>
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="116">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl dim"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl dim"><rect x="226" y="103" width="39" height="16"></rect><text x="245" y="115">1050</text></g>
+<g class="lbl dim"><rect x="307" y="85" width="32" height="16"></rect><text x="322" y="97">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="274" y="118" width="75" height="16"></rect><text x="311" y="130">c₄₅ = 510</text></g>
+<g class="lbl c-lbl"><rect x="264" y="186" width="75" height="16"></rect><text x="302" y="198">c₄₆ = 700</text></g>
+<g class="lbl c-lbl"><rect x="235" y="224" width="75" height="16"></rect><text x="273" y="236">c₄₇ = 830</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="here">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g>
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="386" y="80" width="94" height="18"></rect><text x="391" y="89">f₃(5) = 1640</text><text class="star" x="480" y="80">★</text></g>
-<g class="f-tag"><rect x="386" y="126" width="94" height="18"></rect><text x="391" y="135">f₃(6) = 1570</text></g>
-<g class="f-tag"><rect x="386" y="206" width="94" height="18"></rect><text x="391" y="215">f₃(7) = 1660</text></g>
+<g class="f-tag"><rect x="387" y="80" width="94" height="20"></rect><text x="392" y="94.2">f₃(5) = 1640</text><text class="star" x="488" y="79">★</text></g>
+<g class="f-tag"><rect x="387" y="126" width="94" height="20"></rect><text x="392" y="140.2">f₃(6) = 1570</text></g>
+<g class="f-tag"><rect x="387" y="206" width="94" height="20"></rect><text x="392" y="220.2">f₃(7) = 1660</text></g>
 </g>
 <g class="sum">
-<text class="who" x="167" y="290">Louisville’den çıkan her seçenek — yol + etiket:</text>
-<text x="167" y="314"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₄₅ + f₃(5)  =  </tspan><tspan class="c">510</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2150  ★</tspan></text>
-<text x="167" y="336"><tspan class="who">Omaha’ya:  </tspan><tspan>c₄₆ + f₃(6)  =  </tspan><tspan class="c">700</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2270</tspan></text>
-<text x="167" y="358"><tspan class="who">Dallas’a:  </tspan><tspan>c₄₇ + f₃(7)  =  </tspan><tspan class="c">830</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2490</tspan></text>
+<text class="who" x="167" y="294">Louisville’den çıkan her seçenek — yol + etiket:</text>
+<text x="167" y="318"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₄₅ + f₃(5)  =  </tspan><tspan class="c">510</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2150  ★</tspan></text>
+<text x="167" y="340"><tspan class="who">Omaha’ya:  </tspan><tspan>c₄₆ + f₃(6)  =  </tspan><tspan class="c">700</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2270</tspan></text>
+<text x="167" y="362"><tspan class="who">Dallas’a:  </tspan><tspan>c₄₇ + f₃(7)  =  </tspan><tspan class="c">830</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2490</tspan></text>
 </g>
 </svg>
-</p>
+
+<figcaption>
+<a href="#satir-f2-4">↩︎ tabloya dön</a>
+</figcaption>
+</figure>
 <p>Toplam 9 toplama yaptık. Dikkat edin: <code>f₃(5) = 1640</code>
 sayısını <strong>üç kez</strong> kullandık, üç kez yeniden hesaplamadık.
 Tembellik değil, yöntem bu.</p>
@@ -2063,7 +2121,7 @@ Tembellik değil, yöntem bu.</p>
 <td style="text-align: right;">1640</td>
 <td style="text-align: left;"><span class="kazanan">680 + 1640 = 2320
 ★</span></td>
-<td class="ozet" rowspan="3"><span class="kazanan">f₂(2) = 2320<br>x₂(2) = Kansas City (5)</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan"><span id="satir-f2-2">f₂(2) = 2320</span><br>x₂(2) = Kansas City (5)<br><a href="#sema-f2-2" class="sema">şema ↗</a></span></td>
 </tr>
 <tr class="even">
 <td class="grup-a" style="text-align: left;">Columbus (2)</td>
@@ -2086,7 +2144,7 @@ Tembellik değil, yöntem bu.</p>
 <td style="text-align: right;">1640</td>
 <td style="text-align: left;"><span class="kazanan">580 + 1640 = 2220
 ★</span></td>
-<td class="ozet" rowspan="3"><span class="kazanan">f₂(3) = 2220<br>x₂(3) = Kansas City (5)</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan"><span id="satir-f2-3">f₂(3) = 2220</span><br>x₂(3) = Kansas City (5)<br><a href="#sema-f2-3" class="sema">şema ↗</a></span></td>
 </tr>
 <tr class="odd">
 <td class="grup-b" style="text-align: left;">Nashville (3)</td>
@@ -2109,7 +2167,7 @@ Tembellik değil, yöntem bu.</p>
 <td style="text-align: right;">1640</td>
 <td style="text-align: left;"><span class="kazanan">510 + 1640 = 2150
 ★</span></td>
-<td class="ozet" rowspan="3"><span class="kazanan">f₂(4) = 2150<br>x₂(4) = Kansas City (5)</span></td>
+<td class="ozet" rowspan="3"><span class="kazanan"><span id="satir-f2-4">f₂(4) = 2150</span><br>x₂(4) = Kansas City (5)<br><a href="#sema-f2-4" class="sema">şema ↗</a></span></td>
 </tr>
 <tr class="even">
 <td class="grup-a" style="text-align: left;">Louisville (4)</td>
@@ -2210,9 +2268,9 @@ za)
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -2224,9 +2282,9 @@ za)
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -2248,13 +2306,13 @@ za)
 }
 </style>
 <defs>
-  <marker id="net1-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net1-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net1-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net1-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net1-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="net1-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="net1-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="net1-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr" x="50" y="18">1. sütun</text>
@@ -2263,122 +2321,123 @@ za)
 <text class="hdr dim" x="521" y="18">4. sütun</text>
 <text class="hdr dim" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge c-edge" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net1-arrow-c)"></line>
-<line class="edge c-edge" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net1-arrow-c)"></line>
-<line class="edge c-edge" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net1-arrow-c)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net1-arrow-dim)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge c-edge" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#net1-arrow-c)"></line>
+<line class="edge c-edge" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#net1-arrow-c)"></line>
+<line class="edge c-edge" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#net1-arrow-c)"></line>
+<line class="edge dim" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#net1-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl c-lbl"><rect x="91" y="104" width="75" height="16"></rect><text x="128" y="112">c₁₂ = 550</text></g>
-<g class="lbl c-lbl"><rect x="91" y="144" width="75" height="16"></rect><text x="128" y="152">c₁₃ = 900</text></g>
-<g class="lbl c-lbl"><rect x="91" y="184" width="75" height="16"></rect><text x="128" y="192">c₁₄ = 770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="76">680</text></g>
+<g class="lbl dim"><rect x="231" y="84" width="32" height="16"></rect><text x="247" y="96">790</text></g>
+<g class="lbl dim"><rect x="285" y="164" width="39" height="16"></rect><text x="305" y="176">1050</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="124" width="39" height="16"></rect><text x="599" y="136">1030</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl c-lbl"><rect x="78" y="111" width="75" height="16"></rect><text x="115" y="123">c₁₂ = 550</text></g>
+<g class="lbl c-lbl"><rect x="78" y="144" width="75" height="16"></rect><text x="116" y="156">c₁₃ = 900</text></g>
+<g class="lbl c-lbl"><rect x="78" y="177" width="75" height="16"></rect><text x="115" y="189">c₁₄ = 770</text></g>
 </g>
 <g class="nodes">
 <g class="here">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g>
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g>
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g>
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="dim">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="229" y="80" width="94" height="18"></rect><text x="234" y="89">f₂(2) = 2320</text><text class="star" x="323" y="80">★</text></g>
-<g class="f-tag"><rect x="229" y="126" width="94" height="18"></rect><text x="234" y="135">f₂(3) = 2220</text></g>
-<g class="f-tag"><rect x="229" y="206" width="94" height="18"></rect><text x="234" y="215">f₂(4) = 2150</text></g>
+<g class="f-tag"><rect x="230" y="80" width="94" height="20"></rect><text x="235" y="94.2">f₂(2) = 2320</text><text class="star" x="331" y="79">★</text></g>
+<g class="f-tag"><rect x="230" y="126" width="94" height="20"></rect><text x="235" y="140.2">f₂(3) = 2220</text></g>
+<g class="f-tag"><rect x="230" y="206" width="94" height="20"></rect><text x="235" y="220.2">f₂(4) = 2150</text></g>
 </g>
 <g class="sum">
-<text class="who" x="10" y="290">New York’tan çıkan her seçenek — yol + etiket:</text>
-<text x="10" y="314"><tspan class="who">Columbus’a:  </tspan><tspan>c₁₂ + f₂(2)  =  </tspan><tspan class="c">550</tspan><tspan>  +  </tspan><tspan class="f">2320</tspan><tspan>  =  </tspan><tspan class="win">2870  ★</tspan></text>
-<text x="10" y="336"><tspan class="who">Nashville’e:  </tspan><tspan>c₁₃ + f₂(3)  =  </tspan><tspan class="c">900</tspan><tspan>  +  </tspan><tspan class="f">2220</tspan><tspan>  =  </tspan><tspan class>3120</tspan></text>
-<text x="10" y="358"><tspan class="who">Louisville’e:  </tspan><tspan>c₁₄ + f₂(4)  =  </tspan><tspan class="c">770</tspan><tspan>  +  </tspan><tspan class="f">2150</tspan><tspan>  =  </tspan><tspan class>2920</tspan></text>
+<text class="who" x="10" y="294">New York’tan çıkan her seçenek — yol + etiket:</text>
+<text x="10" y="318"><tspan class="who">Columbus’a:  </tspan><tspan>c₁₂ + f₂(2)  =  </tspan><tspan class="c">550</tspan><tspan>  +  </tspan><tspan class="f">2320</tspan><tspan>  =  </tspan><tspan class="win">2870  ★</tspan></text>
+<text x="10" y="340"><tspan class="who">Nashville’e:  </tspan><tspan>c₁₃ + f₂(3)  =  </tspan><tspan class="c">900</tspan><tspan>  +  </tspan><tspan class="f">2220</tspan><tspan>  =  </tspan><tspan class>3120</tspan></text>
+<text x="10" y="362"><tspan class="who">Louisville’e:  </tspan><tspan>c₁₄ + f₂(4)  =  </tspan><tspan class="c">770</tspan><tspan>  +  </tspan><tspan class="f">2150</tspan><tspan>  =  </tspan><tspan class>2920</tspan></text>
 </g>
 </svg>
 </p>
 <p><strong>Louisville kaybetti — 50 km farkla.</strong> En iyi devamı
 onda vardı (2150), ama oraya gitmek 220 km fazla tuttu (770’e karşı 550)
 ve fark kapanmadı.</p>
-<pre><code>   Columbus    :   550  +  2320   =  2870      yol kısa, devamı orta
-   Louisville  :   770  +  2150   =  2920      yol uzun, devamı en iyi
-                    ▲        ▲
-                    │        └── tek başına Louisville kazanır
-                    └── tek başına Columbus kazanır</code></pre>
+<pre><code>   Columbus    :   550    +    2320    =    2870      yol kısa, devamı orta
+   Louisville  :   770    +    2150    =    2920      yol uzun, devamı en iyi
+                    ▲           ▲             ▲
+                   yol        devam        TOPLAM
+                Columbus    Louisville    Columbus
+                 kazanır      kazanır     kazanır</code></pre>
 <p>Ne yol tek başına, ne devam tek başına karar veriyor. <strong>Sadece
 toplam.</strong> <code>c + f</code> formülünün bütün anlamı bu.</p>
 </details>
@@ -2455,9 +2514,9 @@ etiketi. Etiketlerin soldan sağa nasıl küçüldüğüne bak: 2870 → 2320 �
 .network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
 .network .arrow { fill: var(--muted, #5b6570); }
 .network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
-.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; }
 .network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
-.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .num { font-weight: 700; text-anchor: middle; fill: var(--accent, #0b6bcb); }
 .network .name { font-size: 11.5px; text-anchor: middle; }
 
 .network .dim { opacity: .22; }
@@ -2469,9 +2528,9 @@ etiketi. Etiketlerin soldan sağa nasıl küçüldüğüne bak: 2870 → 2320 �
 .network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
-.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
-.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
-.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 14px; text-anchor: middle; }
+.network .sum text { font-size: 13px; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
@@ -2493,13 +2552,13 @@ etiketi. Etiketlerin soldan sağa nasıl küçüldüğüne bak: 2870 → 2320 �
 }
 </style>
 <defs>
-  <marker id="netroute-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="netroute-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="netroute-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="netroute-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="netroute-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <marker id="netroute-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
     <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
-  <marker id="netroute-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="netroute-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
 <text class="hdr" x="50" y="18">1. sütun</text>
@@ -2508,112 +2567,112 @@ etiketi. Etiketlerin soldan sağa nasıl küçüldüğüne bak: 2870 → 2320 �
 <text class="hdr" x="521" y="18">4. sütun</text>
 <text class="hdr" x="678" y="18">5. sütun</text>
 <g class="edges">
-<line class="edge r-edge" x1="66" y1="152" x2="190" y2="72" marker-end="url(#netroute-arrow-r)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge r-edge" x1="223" y1="72" x2="347" y2="72" marker-end="url(#netroute-arrow-r)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge r-edge" x1="380" y1="72" x2="504" y2="112" marker-end="url(#netroute-arrow-r)"></line>
-<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#netroute-arrow-dim)"></line>
-<line class="edge r-edge" x1="537" y1="112" x2="661" y2="152" marker-end="url(#netroute-arrow-r)"></line>
-<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="65.1" y1="144.3" x2="190.5" y2="80.4" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="67.0" y1="152.0" x2="188.5" y2="152.0" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="65.1" y1="159.7" x2="190.5" y2="223.6" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="224.0" y1="72.0" x2="345.5" y2="72.0" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="222.1" y1="79.7" x2="347.5" y2="143.6" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="84.1" x2="351.0" y2="218.8" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="144.3" x2="347.5" y2="80.4" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="152.0" x2="345.5" y2="152.0" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="159.7" x2="347.5" y2="223.6" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="218.9" y1="219.9" x2="351.0" y2="85.2" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="222.1" y1="224.3" x2="347.5" y2="160.4" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="224.0" y1="232.0" x2="345.5" y2="232.0" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="380.5" y1="76.2" x2="503.1" y2="107.4" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="377.5" y1="82.3" x2="506.3" y2="180.8" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="147.8" x2="503.1" y2="116.6" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="156.2" x2="503.1" y2="187.4" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="377.5" y1="221.7" x2="506.3" y2="123.2" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380.5" y1="227.8" x2="503.1" y2="196.6" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="537.5" y1="116.2" x2="660.1" y2="147.4" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="537.5" y1="187.8" x2="660.1" y2="156.6" marker-end="url(#netroute-arrow-dim)"></line>
 </g>
 <g class="labels">
-<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
-<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
-<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
-<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
-<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
-<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
-<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
-<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
-<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
-<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
-<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
-<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
-<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
-<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
-<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
-<g class="lbl r-lbl"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
-<g class="lbl r-lbl"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
-<g class="lbl r-lbl"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
-<g class="lbl r-lbl"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="156">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="196">770</text></g>
+<g class="lbl dim"><rect x="307" y="123" width="32" height="16"></rect><text x="322" y="135">790</text></g>
+<g class="lbl dim"><rect x="226" y="103" width="39" height="16"></rect><text x="245" y="115">1050</text></g>
+<g class="lbl dim"><rect x="269" y="104" width="32" height="16"></rect><text x="285" y="116">580</text></g>
+<g class="lbl dim"><rect x="239" y="144" width="32" height="16"></rect><text x="254" y="156">760</text></g>
+<g class="lbl dim"><rect x="307" y="203" width="32" height="16"></rect><text x="322" y="215">660</text></g>
+<g class="lbl dim"><rect x="309" y="104" width="32" height="16"></rect><text x="325" y="116">510</text></g>
+<g class="lbl dim"><rect x="250" y="194" width="32" height="16"></rect><text x="266" y="206">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="236">830</text></g>
+<g class="lbl dim"><rect x="394" y="99" width="32" height="16"></rect><text x="410" y="111">790</text></g>
+<g class="lbl dim"><rect x="450" y="118" width="32" height="16"></rect><text x="466" y="130">540</text></g>
+<g class="lbl dim"><rect x="450" y="170" width="32" height="16"></rect><text x="466" y="182">940</text></g>
+<g class="lbl dim"><rect x="394" y="189" width="32" height="16"></rect><text x="410" y="201">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="216">270</text></g>
+<g class="lbl dim"><rect x="579" y="164" width="39" height="16"></rect><text x="599" y="176">1390</text></g>
+<g class="lbl r-lbl"><rect x="99" y="111" width="32" height="16"></rect><text x="115" y="123">550</text></g>
+<g class="lbl r-lbl"><rect x="257" y="64" width="32" height="16"></rect><text x="273" y="76">680</text></g>
+<g class="lbl r-lbl"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="96">610</text></g>
+<g class="lbl r-lbl"><rect x="567" y="121" width="39" height="16"></rect><text x="587" y="133">1030</text></g>
 </g>
 <g class="nodes">
 <g class="here">
-<circle class="node" cx="50" cy="152" r="16"></circle>
-<text class="num" x="50" y="152">1</text>
+<circle class="node" cx="50" cy="152" r="17"></circle>
+<text class="num" x="50" y="156.2">1</text>
 <text class="name" x="50" y="183">New York</text>
 </g>
 <g class="here">
-<circle class="node" cx="207" cy="72" r="16"></circle>
-<text class="num" x="207" y="72">2</text>
+<circle class="node" cx="207" cy="72" r="17"></circle>
+<text class="num" x="207" y="76.2">2</text>
 <text class="name" x="207" y="46">Columbus</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="152" r="16"></circle>
-<text class="num" x="207" y="152">3</text>
+<circle class="node" cx="207" cy="152" r="17"></circle>
+<text class="num" x="207" y="156.2">3</text>
 <text class="name" x="207" y="183">Nashville</text>
 </g>
 <g class="dim">
-<circle class="node" cx="207" cy="232" r="16"></circle>
-<text class="num" x="207" y="232">4</text>
+<circle class="node" cx="207" cy="232" r="17"></circle>
+<text class="num" x="207" y="236.2">4</text>
 <text class="name" x="207" y="263">Louisville</text>
 </g>
 <g class="here">
-<circle class="node" cx="364" cy="72" r="16"></circle>
-<text class="num" x="364" y="72">5</text>
+<circle class="node" cx="364" cy="72" r="17"></circle>
+<text class="num" x="364" y="76.2">5</text>
 <text class="name" x="364" y="46">Kansas City</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="152" r="16"></circle>
-<text class="num" x="364" y="152">6</text>
+<circle class="node" cx="364" cy="152" r="17"></circle>
+<text class="num" x="364" y="156.2">6</text>
 <text class="name" x="364" y="183">Omaha</text>
 </g>
 <g class="dim">
-<circle class="node" cx="364" cy="232" r="16"></circle>
-<text class="num" x="364" y="232">7</text>
+<circle class="node" cx="364" cy="232" r="17"></circle>
+<text class="num" x="364" y="236.2">7</text>
 <text class="name" x="364" y="263">Dallas</text>
 </g>
 <g class="here">
-<circle class="node" cx="521" cy="112" r="16"></circle>
-<text class="num" x="521" y="112">8</text>
+<circle class="node" cx="521" cy="112" r="17"></circle>
+<text class="num" x="521" y="116.2">8</text>
 <text class="name" x="521" y="86">Denver</text>
 </g>
 <g class="dim">
-<circle class="node" cx="521" cy="192" r="16"></circle>
-<text class="num" x="521" y="192">9</text>
+<circle class="node" cx="521" cy="192" r="17"></circle>
+<text class="num" x="521" y="196.2">9</text>
 <text class="name" x="521" y="223">San Antonio</text>
 </g>
 <g class="here">
-<circle class="node" cx="678" cy="152" r="16"></circle>
-<text class="num" x="678" y="152">10</text>
+<circle class="node" cx="678" cy="152" r="17"></circle>
+<text class="num" x="678" y="156.2">10</text>
 <text class="name" x="678" y="183">Los Angeles</text>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="3" y="189" width="94" height="18"></rect><text x="8" y="198">f₁(1) = 2870</text></g>
-<g class="f-tag"><rect x="160" y="94" width="94" height="18"></rect><text x="165" y="103">f₂(2) = 2320</text></g>
-<g class="f-tag"><rect x="317" y="94" width="94" height="18"></rect><text x="322" y="103">f₃(5) = 1640</text></g>
-<g class="f-tag"><rect x="474" y="134" width="94" height="18"></rect><text x="479" y="143">f₄(8) = 1030</text></g>
-<g class="f-tag"><rect x="638" y="189" width="80" height="18"></rect><text x="643" y="198">f₅(10) = 0</text></g>
+<g class="f-tag"><rect x="3" y="189" width="94" height="20"></rect><text x="8" y="203.2">f₁(1) = 2870</text></g>
+<g class="f-tag"><rect x="160" y="95" width="94" height="20"></rect><text x="165" y="109.2">f₂(2) = 2320</text></g>
+<g class="f-tag"><rect x="317" y="95" width="94" height="20"></rect><text x="322" y="109.2">f₃(5) = 1640</text></g>
+<g class="f-tag"><rect x="474" y="135" width="94" height="20"></rect><text x="479" y="149.2">f₄(8) = 1030</text></g>
+<g class="f-tag"><rect x="638" y="189" width="80" height="20"></rect><text x="643" y="203.2">f₅(10) = 0</text></g>
 </g>
 <g class="sum">
-<text class="who" x="50" y="290">Yıldızları soldan sağa takip et:</text>
-<text x="50" y="314"><tspan class="win">New York (1) → Columbus (2) → Kansas City (5) → Denver (8) → Los Angeles (10)</tspan></text>
-<text x="50" y="336"><tspan class="r">550</tspan><tspan>  +  </tspan><tspan class="r">680</tspan><tspan>  +  </tspan><tspan class="r">610</tspan><tspan>  +  </tspan><tspan class="r">1030</tspan><tspan>  =  </tspan><tspan class="win">2870  ✓</tspan></text>
+<text class="who" x="50" y="294">Yıldızları soldan sağa takip et:</text>
+<text x="50" y="318"><tspan class="win">New York (1) → Columbus (2) → Kansas City (5) → Denver (8) → Los Angeles (10)</tspan></text>
+<text x="50" y="340"><tspan class="r">550</tspan><tspan>  +  </tspan><tspan class="r">680</tspan><tspan>  +  </tspan><tspan class="r">610</tspan><tspan>  +  </tspan><tspan class="r">1030</tspan><tspan>  =  </tspan><tspan class="win">2870  ✓</tspan></text>
 </g>
 </svg>
 </p>
@@ -2881,6 +2940,20 @@ Algorithms</em>, bölüm 18. Problem ve sayılar oradan; anlatım, tablolar
 ve şema bu notun yazarına ait.</p>
 <p>Buradaki her sayı bir betikle yeniden hesaplanıp denetlendi — 2870 ve
 güzergâh elle değil, makineyle doğrulanmış.</p>
+<script>
+/* "şema ↗" bir SORU kutusunun içine götürüyorsa kutuyu aç — tarayıcıların
+   çoğu bunu kendiliğinden yapıyor, hepsi değil. */
+(function () {
+  function open() {
+    var t = location.hash && document.getElementById(location.hash.slice(1));
+    for (var d = t && t.parentElement; d; d = d.parentElement)
+      if (d.tagName === 'DETAILS') d.open = true;
+    if (t) t.scrollIntoView();
+  }
+  window.addEventListener('hashchange', open);
+  if (location.hash) open();
+})();
+</script>
 <!-- vim: set foldmethod=marker foldmarker=<details>,</details> foldlevel=99 foldcolumn=2 : -->
 </body>
 </html>
