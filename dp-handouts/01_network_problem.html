@@ -351,11 +351,18 @@ bir bacak, üstündeki sayı o bacağın mili:</p>
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
 .network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
 .network .sum text { font-size: 13px; dominant-baseline: central; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
 .network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
 @media (prefers-color-scheme: dark) {
 .network .c-edge { stroke: #f0a04b; }
 .network .c-arrow { fill: #f0a04b; }
@@ -371,6 +378,8 @@ bir bacak, üstündeki sayı o bacağın mili:</p>
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
   <marker id="net-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
   <marker id="net-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
@@ -616,6 +625,175 @@ dolduralım — 4. sütun (en kolayı)</h2>
 yol var. Seçim yok, düşünmek yok:</p>
 <pre><code>   f₄(8) = 1030      (Denver)
    f₄(9) = 1390      (San Antonio)</code></pre>
+<p>Ağın üstünde bakınca: Los Angeles’ın etiketi <strong>sıfır</strong>
+(<code>f₅(10) = 0</code>, vardık, yol kalmadı). Her iki şehrin etiketi
+de “yol + sıfır” — yani yolun kendisi:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net89-title" class="figure network">
+<title id="net89-title">Denver, San Antonio için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net89-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net89-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net89-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net89-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr dim" x="50" y="18">1. sütun</text>
+<text class="hdr dim" x="207" y="18">2. sütun</text>
+<text class="hdr dim" x="364" y="18">3. sütun</text>
+<text class="hdr" x="521" y="18">4. sütun</text>
+<text class="hdr" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net89-arrow-dim)"></line>
+<line class="edge c-edge" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net89-arrow-c)"></line>
+<line class="edge c-edge" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net89-arrow-c)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
+<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
+<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl c-lbl"><rect x="544" y="124" width="111" height="16"></rect><text x="599" y="132">c(8→10) = 1030</text></g>
+<g class="lbl c-lbl"><rect x="544" y="164" width="111" height="16"></rect><text x="599" y="172">c(9→10) = 1390</text></g>
+</g>
+<g class="nodes">
+<g class="dim">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g class="here">
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g class="here">
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g>
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="638" y="189" width="80" height="18"></rect><text x="643" y="198">f₅(10) = 0</text></g>
+</g>
+<g class="sum">
+<text class="who" x="300" y="290">4. sütun — seçim yok, her şehirden tek yol; yine de yol + etiket:</text>
+<text x="300" y="314"><tspan class="who">Denver → Los Angeles:  </tspan><tspan>c(8→10) + f₅(10)  =  </tspan><tspan class="c">1030</tspan><tspan>  +  </tspan><tspan class="f">0</tspan><tspan>  =  </tspan><tspan class>1030</tspan></text>
+<text x="300" y="336"><tspan class="who">San Antonio → Los Angeles:  </tspan><tspan>c(9→10) + f₅(10)  =  </tspan><tspan class="c">1390</tspan><tspan>  +  </tspan><tspan class="f">0</tspan><tspan>  =  </tspan><tspan class>1390</tspan></text>
+</g>
+</svg>
+</p>
 <p>Zincirin ilk halkası bu. Bundan sonraki her sayı bu ikisinin üstüne
 binecek.</p>
 <hr />
@@ -627,12 +805,13 @@ Denver (8) veya San Antonio (9). Kural hep aynı:</p>
 <pre><code>              ⎧ Denver&#39;a:       c₅₈ + f₄(8) = 610 + 1030 = 1640   ★
    f₃(5)  =   ⎨
               ⎩ San Antonio&#39;ya: c₅₉ + f₄(9) = 790 + 1390 = 2180</code></pre>
-<p>Aynı hesap, ağın üstünde. <strong>Turuncu</strong> oklar Kansas
-City’den çıkan iki yol (<code>c₅₈</code>, <code>c₅₉</code>);
+<p>Aynı hesap, ağın üstünde. <strong>Turuncu</strong> kutular Kansas
+City’den çıkan iki yol (<code>c₅₈ = 610</code>, <code>c₅₉ = 790</code>);
 <strong>yeşil</strong> kutular varılan şehrin etiketi
 (<code>f₄(8)</code>, <code>f₄(9)</code>). Her satır bir turuncu ile bir
-yeşilin toplamı — ilgisiz her şey silik:</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 354" width="756" role="img" aria-labelledby="net5-title" class="figure network">
+yeşilin toplamı; kazanan seçeneğin yeşil kutusunda ★ — ilgisiz her şey
+silik:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net5-title" class="figure network">
 <title id="net5-title">Kansas City için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
 <style>
 .network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
@@ -655,11 +834,18 @@ yeşilin toplamı — ilgisiz her şey silik:</p>
 .network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
 .network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
 .network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
 .network .sum text { font-size: 13px; dominant-baseline: central; }
 .network .sum .c { fill: #c96a12; font-weight: 700; }
 .network .sum .f { fill: #1f8a55; font-weight: 700; }
 .network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
 .network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
 @media (prefers-color-scheme: dark) {
 .network .c-edge { stroke: #f0a04b; }
 .network .c-arrow { fill: #f0a04b; }
@@ -675,6 +861,8 @@ yeşilin toplamı — ilgisiz her şey silik:</p>
     <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
   <marker id="net5-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net5-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
   <marker id="net5-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
 </defs>
@@ -718,14 +906,14 @@ yeşilin toplamı — ilgisiz her şey silik:</p>
 <g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
 <g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
 <g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
-<g class="lbl c-lbl"><rect x="414" y="80" width="32" height="16"></rect><text x="430" y="88">610</text></g>
-<g class="lbl c-lbl"><rect x="414" y="112" width="32" height="16"></rect><text x="430" y="120">790</text></g>
-<g class="lbl dim"><rect x="451" y="116" width="32" height="16"></rect><text x="467" y="124">540</text></g>
-<g class="lbl dim"><rect x="401" y="156" width="32" height="16"></rect><text x="417" y="164">940</text></g>
-<g class="lbl dim"><rect x="439" y="152" width="32" height="16"></rect><text x="454" y="160">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="389" y="200" width="32" height="16"></rect><text x="405" y="208">790</text></g>
 <g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
 <g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
 <g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="392" y="80" width="75" height="16"></rect><text x="430" y="88">c₅₈ = 610</text></g>
+<g class="lbl c-lbl"><rect x="392" y="112" width="75" height="16"></rect><text x="430" y="120">c₅₉ = 790</text></g>
 </g>
 <g class="nodes">
 <g class="dim">
@@ -780,13 +968,13 @@ yeşilin toplamı — ilgisiz her şey silik:</p>
 </g>
 </g>
 <g class="tags">
-<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text></g>
+<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text><text class="star" x="637" y="120">★</text></g>
 <g class="f-tag"><rect x="543" y="166" width="94" height="18"></rect><text x="548" y="175">f₄(9) = 1390</text></g>
 </g>
 <g class="sum">
-<text class="who" x="324" y="290">Kansas City’den çıkan her seçenek — yol + etiket:</text>
-<text x="324" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₅₈ + f₄(8)  =  </tspan><tspan class="c">610</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1640  ★</tspan></text>
-<text x="324" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₅₉ + f₄(9)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2180</tspan></text>
+<text class="who" x="300" y="290">Kansas City’den çıkan her seçenek — yol + etiket:</text>
+<text x="300" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₅₈ + f₄(8)  =  </tspan><tspan class="c">610</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1640  ★</tspan></text>
+<text x="300" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₅₉ + f₄(9)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2180</tspan></text>
 </g>
 </svg>
 </p>
@@ -803,6 +991,173 @@ olduğun anda, önünde 1640 km var ve Denver’a gitmelisin.”</em></p>
    f₃(6)  =   ⎨
               ⎩ San Antonio&#39;ya: c₆₉ + f₄(9) = 940 + 1390 = 2330</code></pre>
 <p><strong>f₃(6) = 1570</strong>, Denver’a gidilir.</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net6-title" class="figure network">
+<title id="net6-title">Omaha için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net6-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net6-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net6-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net6-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr dim" x="50" y="18">1. sütun</text>
+<text class="hdr dim" x="207" y="18">2. sütun</text>
+<text class="hdr" x="364" y="18">3. sütun</text>
+<text class="hdr" x="521" y="18">4. sütun</text>
+<text class="hdr dim" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge c-edge" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net6-arrow-c)"></line>
+<line class="edge c-edge" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net6-arrow-c)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net6-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
+<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
+<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="389" y="200" width="32" height="16"></rect><text x="405" y="208">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="392" y="128" width="75" height="16"></rect><text x="430" y="136">c₆₈ = 540</text></g>
+<g class="lbl c-lbl"><rect x="392" y="160" width="75" height="16"></rect><text x="430" y="168">c₆₉ = 940</text></g>
+</g>
+<g class="nodes">
+<g class="dim">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g class="here">
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g>
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g>
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="dim">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text><text class="star" x="637" y="120">★</text></g>
+<g class="f-tag"><rect x="543" y="166" width="94" height="18"></rect><text x="548" y="175">f₄(9) = 1390</text></g>
+</g>
+<g class="sum">
+<text class="who" x="300" y="290">Omaha’dan çıkan her seçenek — yol + etiket:</text>
+<text x="300" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₆₈ + f₄(8)  =  </tspan><tspan class="c">540</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class="win">1570  ★</tspan></text>
+<text x="300" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₆₉ + f₄(9)  =  </tspan><tspan class="c">940</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class>2330</tspan></text>
+</g>
+</svg>
+</p>
 </details>
 <details>
 <summary>
@@ -820,6 +1175,176 @@ Antonio yolu üç kat kısa. Bu muazzam avantaj nereye buharlaştı?</p>
 <p><strong>San Antonio’nun kendisi pahalı bir şehir</strong> (etiketi
 1390, Denver’ınki 1030). Ucuz yolla pahalı şehre gidiyorsunuz. Isınma
 sorusundaki tuzağın aynısı.</p>
+<p>Şemada da görünüyor: kısa turuncu ok (270) büyük yeşil kutuya (1390)
+çıkıyor, uzun turuncu ok (790) küçük yeşile (1030). Toplamlar birbirine
+yaklaşıyor:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="net7-title" class="figure network">
+<title id="net7-title">Dallas için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net7-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net7-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net7-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net7-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr dim" x="50" y="18">1. sütun</text>
+<text class="hdr dim" x="207" y="18">2. sütun</text>
+<text class="hdr" x="364" y="18">3. sütun</text>
+<text class="hdr" x="521" y="18">4. sütun</text>
+<text class="hdr dim" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge c-edge" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net7-arrow-c)"></line>
+<line class="edge c-edge" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net7-arrow-c)"></line>
+<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net7-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
+<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
+<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="392" y="176" width="75" height="16"></rect><text x="430" y="184">c₇₈ = 790</text></g>
+<g class="lbl c-lbl"><rect x="392" y="208" width="75" height="16"></rect><text x="430" y="216">c₇₉ = 270</text></g>
+</g>
+<g class="nodes">
+<g class="dim">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g class="here">
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g>
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g>
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="dim">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="543" y="120" width="94" height="18"></rect><text x="548" y="129">f₄(8) = 1030</text></g>
+<g class="f-tag"><rect x="543" y="166" width="94" height="18"></rect><text x="548" y="175">f₄(9) = 1390</text><text class="star" x="637" y="166">★</text></g>
+</g>
+<g class="sum">
+<text class="who" x="300" y="290">Dallas’tan çıkan her seçenek — yol + etiket:</text>
+<text x="300" y="314"><tspan class="who">Denver’a:  </tspan><tspan>c₇₈ + f₄(8)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1030</tspan><tspan>  =  </tspan><tspan class>1820</tspan></text>
+<text x="300" y="336"><tspan class="who">San Antonio’ya:  </tspan><tspan>c₇₉ + f₄(9)  =  </tspan><tspan class="c">270</tspan><tspan>  +  </tspan><tspan class="f">1390</tspan><tspan>  =  </tspan><tspan class="win">1660  ★</tspan></text>
+</g>
+</svg>
+</p>
 </details>
 <p>Üçünün tam dökümü — her şehir için iki seçenek, kazanan işaretli:</p>
 <table style="width:100%;">
@@ -985,6 +1510,178 @@ etiketlerini kullanıyoruz.</p>
 <pre><code>              ⎧ c₂₅ + f₃(5) =  680 + 1640 = 2320   ★
    f₂(2)  =   ⎨ c₂₆ + f₃(6) =  790 + 1570 = 2360
               ⎩ c₂₇ + f₃(7) = 1050 + 1660 = 2710</code></pre>
+<p>Bu kez üç turuncu ok, üç yeşil kutu. Yeşil kutulardaki sayılar az
+önce kendimizin hesapladığı <code>f₃</code> etiketleri — 3. sütunun
+arkasındaki dünya artık üç sayıya inmiş:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net2-title" class="figure network">
+<title id="net2-title">Columbus için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net2-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net2-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net2-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net2-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr dim" x="50" y="18">1. sütun</text>
+<text class="hdr" x="207" y="18">2. sütun</text>
+<text class="hdr" x="364" y="18">3. sütun</text>
+<text class="hdr dim" x="521" y="18">4. sütun</text>
+<text class="hdr dim" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge c-edge" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net2-arrow-c)"></line>
+<line class="edge c-edge" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net2-arrow-c)"></line>
+<line class="edge c-edge" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net2-arrow-c)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net2-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net2-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="300" y="84" width="32" height="16"></rect><text x="316" y="92">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
+<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="248" y="64" width="75" height="16"></rect><text x="285" y="72">c₂₅ = 680</text></g>
+<g class="lbl c-lbl"><rect x="229" y="92" width="75" height="16"></rect><text x="266" y="100">c₂₆ = 790</text></g>
+<g class="lbl c-lbl"><rect x="232" y="128" width="82" height="16"></rect><text x="273" y="136">c₂₇ = 1050</text></g>
+</g>
+<g class="nodes">
+<g class="dim">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="here">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="dim">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="386" y="80" width="94" height="18"></rect><text x="391" y="89">f₃(5) = 1640</text><text class="star" x="480" y="80">★</text></g>
+<g class="f-tag"><rect x="386" y="126" width="94" height="18"></rect><text x="391" y="135">f₃(6) = 1570</text></g>
+<g class="f-tag"><rect x="386" y="206" width="94" height="18"></rect><text x="391" y="215">f₃(7) = 1660</text></g>
+</g>
+<g class="sum">
+<text class="who" x="167" y="290">Columbus’tan çıkan her seçenek — yol + etiket:</text>
+<text x="167" y="314"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₂₅ + f₃(5)  =  </tspan><tspan class="c">680</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2320  ★</tspan></text>
+<text x="167" y="336"><tspan class="who">Omaha’ya:  </tspan><tspan>c₂₆ + f₃(6)  =  </tspan><tspan class="c">790</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2360</tspan></text>
+<text x="167" y="358"><tspan class="who">Dallas’a:  </tspan><tspan>c₂₇ + f₃(7)  =  </tspan><tspan class="c">1050</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2710</tspan></text>
+</g>
+</svg>
+</p>
 <details>
 <summary>
 <b>SORU 7</b> — Nashville (3) ve Louisville (4) için aynısını yap. (aç:
@@ -992,11 +1689,348 @@ tıkla · nvim: za)
 </summary>
 <pre><code>              ⎧ c₃₅ + f₃(5) =  580 + 1640 = 2220   ★
    f₂(3)  =   ⎨ c₃₆ + f₃(6) =  760 + 1570 = 2330
-              ⎩ c₃₇ + f₃(7) =  660 + 1660 = 2320
+              ⎩ c₃₇ + f₃(7) =  660 + 1660 = 2320</code></pre>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net3-title" class="figure network">
+<title id="net3-title">Nashville için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
 
-              ⎧ c₄₅ + f₃(5) =  510 + 1640 = 2150   ★
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net3-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net3-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net3-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net3-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr dim" x="50" y="18">1. sütun</text>
+<text class="hdr" x="207" y="18">2. sütun</text>
+<text class="hdr" x="364" y="18">3. sütun</text>
+<text class="hdr dim" x="521" y="18">4. sütun</text>
+<text class="hdr dim" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge c-edge" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net3-arrow-c)"></line>
+<line class="edge c-edge" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net3-arrow-c)"></line>
+<line class="edge c-edge" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net3-arrow-c)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net3-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net3-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="253" y="128" width="39" height="16"></rect><text x="273" y="136">1050</text></g>
+<g class="lbl dim"><rect x="232" y="192" width="32" height="16"></rect><text x="248" y="200">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="232" y="224" width="32" height="16"></rect><text x="248" y="232">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="260" y="96" width="75" height="16"></rect><text x="297" y="104">c₃₅ = 580</text></g>
+<g class="lbl c-lbl"><rect x="229" y="144" width="75" height="16"></rect><text x="266" y="152">c₃₆ = 760</text></g>
+<g class="lbl c-lbl"><rect x="266" y="196" width="75" height="16"></rect><text x="304" y="204">c₃₇ = 660</text></g>
+</g>
+<g class="nodes">
+<g class="dim">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="here">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="dim">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="386" y="80" width="94" height="18"></rect><text x="391" y="89">f₃(5) = 1640</text><text class="star" x="480" y="80">★</text></g>
+<g class="f-tag"><rect x="386" y="126" width="94" height="18"></rect><text x="391" y="135">f₃(6) = 1570</text></g>
+<g class="f-tag"><rect x="386" y="206" width="94" height="18"></rect><text x="391" y="215">f₃(7) = 1660</text></g>
+</g>
+<g class="sum">
+<text class="who" x="167" y="290">Nashville’den çıkan her seçenek — yol + etiket:</text>
+<text x="167" y="314"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₃₅ + f₃(5)  =  </tspan><tspan class="c">580</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2220  ★</tspan></text>
+<text x="167" y="336"><tspan class="who">Omaha’ya:  </tspan><tspan>c₃₆ + f₃(6)  =  </tspan><tspan class="c">760</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2330</tspan></text>
+<text x="167" y="358"><tspan class="who">Dallas’a:  </tspan><tspan>c₃₇ + f₃(7)  =  </tspan><tspan class="c">660</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2320</tspan></text>
+</g>
+</svg>
+</p>
+<pre><code>              ⎧ c₄₅ + f₃(5) =  510 + 1640 = 2150   ★
    f₂(4)  =   ⎨ c₄₆ + f₃(6) =  700 + 1570 = 2270
               ⎩ c₄₇ + f₃(7) =  830 + 1660 = 2490</code></pre>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net4-title" class="figure network">
+<title id="net4-title">Louisville için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net4-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net4-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net4-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net4-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr dim" x="50" y="18">1. sütun</text>
+<text class="hdr" x="207" y="18">2. sütun</text>
+<text class="hdr" x="364" y="18">3. sütun</text>
+<text class="hdr dim" x="521" y="18">4. sütun</text>
+<text class="hdr dim" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge dim" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge c-edge" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net4-arrow-c)"></line>
+<line class="edge c-edge" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net4-arrow-c)"></line>
+<line class="edge c-edge" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net4-arrow-c)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net4-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net4-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
+<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="300" y="204" width="32" height="16"></rect><text x="316" y="212">660</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="235" y="160" width="75" height="16"></rect><text x="273" y="168">c₄₅ = 510</text></g>
+<g class="lbl c-lbl"><rect x="229" y="196" width="75" height="16"></rect><text x="266" y="204">c₄₆ = 700</text></g>
+<g class="lbl c-lbl"><rect x="248" y="224" width="75" height="16"></rect><text x="285" y="232">c₄₇ = 830</text></g>
+</g>
+<g class="nodes">
+<g class="dim">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="here">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g>
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="dim">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="386" y="80" width="94" height="18"></rect><text x="391" y="89">f₃(5) = 1640</text><text class="star" x="480" y="80">★</text></g>
+<g class="f-tag"><rect x="386" y="126" width="94" height="18"></rect><text x="391" y="135">f₃(6) = 1570</text></g>
+<g class="f-tag"><rect x="386" y="206" width="94" height="18"></rect><text x="391" y="215">f₃(7) = 1660</text></g>
+</g>
+<g class="sum">
+<text class="who" x="167" y="290">Louisville’den çıkan her seçenek — yol + etiket:</text>
+<text x="167" y="314"><tspan class="who">Kansas City’ye:  </tspan><tspan>c₄₅ + f₃(5)  =  </tspan><tspan class="c">510</tspan><tspan>  +  </tspan><tspan class="f">1640</tspan><tspan>  =  </tspan><tspan class="win">2150  ★</tspan></text>
+<text x="167" y="336"><tspan class="who">Omaha’ya:  </tspan><tspan>c₄₆ + f₃(6)  =  </tspan><tspan class="c">700</tspan><tspan>  +  </tspan><tspan class="f">1570</tspan><tspan>  =  </tspan><tspan class>2270</tspan></text>
+<text x="167" y="358"><tspan class="who">Dallas’a:  </tspan><tspan>c₄₇ + f₃(7)  =  </tspan><tspan class="c">830</tspan><tspan>  +  </tspan><tspan class="f">1660</tspan><tspan>  =  </tspan><tspan class>2490</tspan></text>
+</g>
+</svg>
+</p>
 <p>Toplam 9 toplama yaptık. Dikkat edin: <code>f₃(5) = 1640</code>
 sayısını <strong>üç kez</strong> kullandık, üç kez yeniden hesaplamadık.
 Tembellik değil, yöntem bu.</p>
@@ -1168,6 +2202,175 @@ za)
    f₁(1)  =   ⎨ c₁₃ + f₂(3) = 900 + 2220 = 3120
               ⎩ c₁₄ + f₂(4) = 770 + 2150 = 2920</code></pre>
 <p><strong>f₁(1) = 2870</strong>, Columbus üzerinden.</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 390" width="756" role="img" aria-labelledby="net1-title" class="figure network">
+<title id="net1-title">New York için seçenekler: her okun mili ile varılan şehrin etiketi toplanır, küçüğü seçilir</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="net1-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net1-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net1-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="net1-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr" x="50" y="18">1. sütun</text>
+<text class="hdr" x="207" y="18">2. sütun</text>
+<text class="hdr dim" x="364" y="18">3. sütun</text>
+<text class="hdr dim" x="521" y="18">4. sütun</text>
+<text class="hdr dim" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge c-edge" x1="66" y1="152" x2="190" y2="72" marker-end="url(#net1-arrow-c)"></line>
+<line class="edge c-edge" x1="66" y1="152" x2="190" y2="152" marker-end="url(#net1-arrow-c)"></line>
+<line class="edge c-edge" x1="66" y1="152" x2="190" y2="232" marker-end="url(#net1-arrow-c)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="72" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="112" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="112" x2="661" y2="152" marker-end="url(#net1-arrow-dim)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#net1-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
+<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
+<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
+<g class="lbl dim"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl dim"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl c-lbl"><rect x="91" y="104" width="75" height="16"></rect><text x="128" y="112">c₁₂ = 550</text></g>
+<g class="lbl c-lbl"><rect x="91" y="144" width="75" height="16"></rect><text x="128" y="152">c₁₃ = 900</text></g>
+<g class="lbl c-lbl"><rect x="91" y="184" width="75" height="16"></rect><text x="128" y="192">c₁₄ = 770</text></g>
+</g>
+<g class="nodes">
+<g class="here">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g>
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g>
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g>
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="dim">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="229" y="80" width="94" height="18"></rect><text x="234" y="89">f₂(2) = 2320</text><text class="star" x="323" y="80">★</text></g>
+<g class="f-tag"><rect x="229" y="126" width="94" height="18"></rect><text x="234" y="135">f₂(3) = 2220</text></g>
+<g class="f-tag"><rect x="229" y="206" width="94" height="18"></rect><text x="234" y="215">f₂(4) = 2150</text></g>
+</g>
+<g class="sum">
+<text class="who" x="10" y="290">New York’tan çıkan her seçenek — yol + etiket:</text>
+<text x="10" y="314"><tspan class="who">Columbus’a:  </tspan><tspan>c₁₂ + f₂(2)  =  </tspan><tspan class="c">550</tspan><tspan>  +  </tspan><tspan class="f">2320</tspan><tspan>  =  </tspan><tspan class="win">2870  ★</tspan></text>
+<text x="10" y="336"><tspan class="who">Nashville’e:  </tspan><tspan>c₁₃ + f₂(3)  =  </tspan><tspan class="c">900</tspan><tspan>  +  </tspan><tspan class="f">2220</tspan><tspan>  =  </tspan><tspan class>3120</tspan></text>
+<text x="10" y="358"><tspan class="who">Louisville’e:  </tspan><tspan>c₁₄ + f₂(4)  =  </tspan><tspan class="c">770</tspan><tspan>  +  </tspan><tspan class="f">2150</tspan><tspan>  =  </tspan><tspan class>2920</tspan></text>
+</g>
+</svg>
+</p>
 <p><strong>Louisville kaybetti — 50 km farkla.</strong> En iyi devamı
 onda vardı (2150), ama oraya gitmek 220 km fazla tuttu (770’e karşı 550)
 ve fark kapanmadı.</p>
@@ -1241,6 +2444,179 @@ fayda etmez, hangi şehirlerden geçeceğini söylemek lazım.</p>
      (1)              (2)                 (5)               (8)               (10)
 
               550 + 680 + 610 + 1030 = 2870 ✓</code></pre>
+<p>Ağın üstünde, yıldızlı yol maviyle — her düğümün altında kendi
+etiketi. Etiketlerin soldan sağa nasıl küçüldüğüne bak: 2870 → 2320 →
+1640 → 1030 → 0. Her adımda tam o bacağın mili kadar eksiliyor:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 368" width="756" role="img" aria-labelledby="netroute-title" class="figure network">
+<title id="netroute-title">En kısa rota: New York → Columbus → Kansas City → Denver → Los Angeles, toplam 2870 mil</title>
+<style>
+.network text { font: 12px/1 -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; fill: var(--fg, #1f2328); }
+.network .hdr { font-size: 10.5px; fill: var(--muted, #5b6570); letter-spacing: .08em; text-transform: uppercase; text-anchor: middle; }
+.network .edge { stroke: var(--muted, #5b6570); stroke-width: 1.2; fill: none; stroke-opacity: .85; }
+.network .arrow { fill: var(--muted, #5b6570); }
+.network .lbl rect { fill: var(--bg, #fbfaf8); stroke: var(--rule, #e2ded6); stroke-width: 1; rx: 3; }
+.network .lbl text { font-size: 11.5px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network .node { fill: var(--code-bg, #f1efea); stroke: var(--accent, #0b6bcb); stroke-width: 1.6; }
+.network .num { font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--accent, #0b6bcb); }
+.network .name { font-size: 11.5px; text-anchor: middle; }
+
+.network .dim { opacity: .22; }
+.network .edge.dim { opacity: 1; stroke-opacity: .18; }
+.network .arrow.dim { fill-opacity: .18; }
+.network .here .node { stroke-width: 2.6; }
+.network .c-edge { stroke: #c96a12; stroke-width: 2.6; stroke-opacity: 1; }
+.network .c-arrow { fill: #c96a12; }
+.network .c-lbl rect { stroke: #c96a12; stroke-width: 1.4; }
+.network .c-lbl text { fill: #c96a12; font-size: 12.5px; }
+.network .f-tag rect { fill: #e6f4ec; stroke: #1f8a55; stroke-width: 1.2; rx: 4; }
+.network .f-tag text { fill: #1f8a55; font-weight: 700; font-size: 12px; dominant-baseline: central; }
+.network .f-tag .star { fill: var(--accent, #0b6bcb); font-size: 15px; text-anchor: middle; }
+.network .sum text { font-size: 13px; dominant-baseline: central; }
+.network .sum .c { fill: #c96a12; font-weight: 700; }
+.network .sum .f { fill: #1f8a55; font-weight: 700; }
+.network .sum .win { fill: var(--accent, #0b6bcb); font-weight: 700; }
+.network .sum .who { fill: var(--muted, #5b6570); }
+
+.network .r-edge { stroke: var(--accent, #0b6bcb); stroke-width: 2.8; stroke-opacity: 1; }
+.network .r-arrow { fill: var(--accent, #0b6bcb); }
+.network .r-lbl rect { stroke: var(--accent, #0b6bcb); stroke-width: 1.4; }
+.network .r-lbl text { fill: var(--accent, #0b6bcb); font-size: 12.5px; }
+.network .sum .r { fill: var(--accent, #0b6bcb); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+.network .c-edge { stroke: #f0a04b; }
+.network .c-arrow { fill: #f0a04b; }
+.network .c-lbl rect { stroke: #f0a04b; }
+.network .c-lbl text { fill: #f0a04b; }
+.network .sum .c { fill: #f0a04b; }
+.network .f-tag rect { fill: #17311f; stroke: #4cc38a; }
+.network .f-tag text, .network .sum .f { fill: #4cc38a; }
+}
+</style>
+<defs>
+  <marker id="netroute-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="netroute-arrow-c" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="c-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="netroute-arrow-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path class="r-arrow" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+  <marker id="netroute-arrow-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path class="arrow dim" d="M0,0.5 L7.5,4 L0,7.5 Z"></path></marker>
+</defs>
+<text class="hdr" x="50" y="18">1. sütun</text>
+<text class="hdr" x="207" y="18">2. sütun</text>
+<text class="hdr" x="364" y="18">3. sütun</text>
+<text class="hdr" x="521" y="18">4. sütun</text>
+<text class="hdr" x="678" y="18">5. sütun</text>
+<g class="edges">
+<line class="edge r-edge" x1="66" y1="152" x2="190" y2="72" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="66" y1="152" x2="190" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="223" y1="72" x2="347" y2="72" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="72" x2="347" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="72" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="152" x2="347" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="72" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="223" y1="232" x2="347" y2="232" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="380" y1="72" x2="504" y2="112" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="380" y1="72" x2="504" y2="192" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="112" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="152" x2="504" y2="192" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="112" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge dim" x1="380" y1="232" x2="504" y2="192" marker-end="url(#netroute-arrow-dim)"></line>
+<line class="edge r-edge" x1="537" y1="112" x2="661" y2="152" marker-end="url(#netroute-arrow-r)"></line>
+<line class="edge dim" x1="537" y1="192" x2="661" y2="152" marker-end="url(#netroute-arrow-dim)"></line>
+</g>
+<g class="labels">
+<g class="lbl dim"><rect x="112" y="144" width="32" height="16"></rect><text x="128" y="152">900</text></g>
+<g class="lbl dim"><rect x="112" y="184" width="32" height="16"></rect><text x="128" y="192">770</text></g>
+<g class="lbl dim"><rect x="306" y="128" width="32" height="16"></rect><text x="322" y="136">790</text></g>
+<g class="lbl dim"><rect x="235" y="104" width="39" height="16"></rect><text x="254" y="112">1050</text></g>
+<g class="lbl dim"><rect x="282" y="96" width="32" height="16"></rect><text x="297" y="104">580</text></g>
+<g class="lbl dim"><rect x="251" y="144" width="32" height="16"></rect><text x="266" y="152">760</text></g>
+<g class="lbl dim"><rect x="282" y="192" width="32" height="16"></rect><text x="297" y="200">660</text></g>
+<g class="lbl dim"><rect x="238" y="184" width="32" height="16"></rect><text x="254" y="192">510</text></g>
+<g class="lbl dim"><rect x="306" y="160" width="32" height="16"></rect><text x="322" y="168">700</text></g>
+<g class="lbl dim"><rect x="269" y="224" width="32" height="16"></rect><text x="285" y="232">830</text></g>
+<g class="lbl dim"><rect x="389" y="88" width="32" height="16"></rect><text x="405" y="96">790</text></g>
+<g class="lbl dim"><rect x="414" y="128" width="32" height="16"></rect><text x="430" y="136">540</text></g>
+<g class="lbl dim"><rect x="414" y="160" width="32" height="16"></rect><text x="430" y="168">940</text></g>
+<g class="lbl dim"><rect x="457" y="134" width="32" height="16"></rect><text x="473" y="142">790</text></g>
+<g class="lbl dim"><rect x="426" y="204" width="32" height="16"></rect><text x="442" y="212">270</text></g>
+<g class="lbl dim"><rect x="580" y="164" width="39" height="16"></rect><text x="599" y="172">1390</text></g>
+<g class="lbl r-lbl"><rect x="112" y="104" width="32" height="16"></rect><text x="128" y="112">550</text></g>
+<g class="lbl r-lbl"><rect x="269" y="64" width="32" height="16"></rect><text x="285" y="72">680</text></g>
+<g class="lbl r-lbl"><rect x="426" y="84" width="32" height="16"></rect><text x="442" y="92">610</text></g>
+<g class="lbl r-lbl"><rect x="580" y="124" width="39" height="16"></rect><text x="599" y="132">1030</text></g>
+</g>
+<g class="nodes">
+<g class="here">
+<circle class="node" cx="50" cy="152" r="16"></circle>
+<text class="num" x="50" y="152">1</text>
+<text class="name" x="50" y="183">New York</text>
+</g>
+<g class="here">
+<circle class="node" cx="207" cy="72" r="16"></circle>
+<text class="num" x="207" y="72">2</text>
+<text class="name" x="207" y="46">Columbus</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="152" r="16"></circle>
+<text class="num" x="207" y="152">3</text>
+<text class="name" x="207" y="183">Nashville</text>
+</g>
+<g class="dim">
+<circle class="node" cx="207" cy="232" r="16"></circle>
+<text class="num" x="207" y="232">4</text>
+<text class="name" x="207" y="263">Louisville</text>
+</g>
+<g class="here">
+<circle class="node" cx="364" cy="72" r="16"></circle>
+<text class="num" x="364" y="72">5</text>
+<text class="name" x="364" y="46">Kansas City</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="152" r="16"></circle>
+<text class="num" x="364" y="152">6</text>
+<text class="name" x="364" y="183">Omaha</text>
+</g>
+<g class="dim">
+<circle class="node" cx="364" cy="232" r="16"></circle>
+<text class="num" x="364" y="232">7</text>
+<text class="name" x="364" y="263">Dallas</text>
+</g>
+<g class="here">
+<circle class="node" cx="521" cy="112" r="16"></circle>
+<text class="num" x="521" y="112">8</text>
+<text class="name" x="521" y="86">Denver</text>
+</g>
+<g class="dim">
+<circle class="node" cx="521" cy="192" r="16"></circle>
+<text class="num" x="521" y="192">9</text>
+<text class="name" x="521" y="223">San Antonio</text>
+</g>
+<g class="here">
+<circle class="node" cx="678" cy="152" r="16"></circle>
+<text class="num" x="678" y="152">10</text>
+<text class="name" x="678" y="183">Los Angeles</text>
+</g>
+</g>
+<g class="tags">
+<g class="f-tag"><rect x="3" y="189" width="94" height="18"></rect><text x="8" y="198">f₁(1) = 2870</text></g>
+<g class="f-tag"><rect x="160" y="94" width="94" height="18"></rect><text x="165" y="103">f₂(2) = 2320</text></g>
+<g class="f-tag"><rect x="317" y="94" width="94" height="18"></rect><text x="322" y="103">f₃(5) = 1640</text></g>
+<g class="f-tag"><rect x="474" y="134" width="94" height="18"></rect><text x="479" y="143">f₄(8) = 1030</text></g>
+<g class="f-tag"><rect x="638" y="189" width="80" height="18"></rect><text x="643" y="198">f₅(10) = 0</text></g>
+</g>
+<g class="sum">
+<text class="who" x="50" y="290">Yıldızları soldan sağa takip et:</text>
+<text x="50" y="314"><tspan class="win">New York (1) → Columbus (2) → Kansas City (5) → Denver (8) → Los Angeles (10)</tspan></text>
+<text x="50" y="336"><tspan class="r">550</tspan><tspan>  +  </tspan><tspan class="r">680</tspan><tspan>  +  </tspan><tspan class="r">610</tspan><tspan>  +  </tspan><tspan class="r">1030</tspan><tspan>  =  </tspan><tspan class="win">2870  ✓</tspan></text>
+</g>
+</svg>
+</p>
 <p><strong>Cevap: 1 → 2 → 5 → 8 → 10, toplam 2870 km.</strong></p>
 <p>Başlangıçtaki soru işaretlerinin hepsi doldu:</p>
 <pre><code>                     [2320]*         [1640]*        [1030]*
