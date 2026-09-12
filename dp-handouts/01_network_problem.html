@@ -530,7 +530,14 @@ küçüğü seçilir.</p>
    Los Angeles&#39;ın etiketi sıfır: vardık, önümüzde yol kalmadı.
    Bütün iş, soru işaretlerini doldurmak — hem de SAĞDAN SOLA:
 
-              [ ? ] ◄─── [ ? ] ◄─── [ ? ] ◄─── [ 0 ]</code></pre>
+     Joe&#39;nun yolu   ─────────────────────────────────────────────────►
+                    1. sütun    2. sütun    3. sütun    4. sütun    5. sütun
+                     [ ? ]  ◄───  [ ? ]  ◄───  [ ? ]  ◄───  [ ? ]  ◄───  [ 0 ]
+     hesap sırası   ◄─────────────────────────────────────────────────
+                    5. adım     4. adım     3. adım     2. adım     1. adım
+
+   Ok neyi gösteriyor? Yolculuğu değil, BİLGİYİ: her soru işareti,
+   sağındaki değer bilinmeden doldurulamaz. Joe sağa gider, hesap sola.</code></pre>
 <p><strong>Peki etiketleri nasıl bulacağız?</strong> İşte numara
 burada:</p>
 <pre><code>   New York&#39;un etiketini bulmak için 2. sütunun etiketleri lazım.
@@ -543,10 +550,10 @@ deniyor.</p>
 <hr />
 <h2 id="gösterim-sadece-iki-sembol">4. Gösterim (sadece iki sembol)</h2>
 <p>Uzun uzun yazmayalım diye iki kısaltma:</p>
-<pre><code>   c_ij     = i şehrinden j şehrine olan yolun uzunluğu
+<pre><code>   cᵢⱼ      = i şehrinden j şehrine olan yolun uzunluğu
               örnek: c₂₅ = 680  (Columbus&#39;tan Kansas City&#39;ye)
 
-   f_t(i)   = i şehrinin ETİKETİ
+   fₜ(i)    = i şehrinin ETİKETİ
               yani i&#39;den Los Angeles&#39;a kalan EN KISA yol
               t = i&#39;nin hangi sütunda olduğu</code></pre>
 <p>Hepsi bu. <code>f</code> harfini gördüğünüz her yerde içinizden
@@ -1137,7 +1144,7 @@ olmayabilir.</p>
 <p>Yaptığınız şeyin tarifi dört satır:</p>
 <pre><code>   1.  Problemi AŞAMALARA böl.               (sütunlar = günler)
    2.  Her aşamada DURUMU tanımla.           (durum = bulunduğun şehir)
-   3.  SONDAN başla, geriye doğru gel.       (f_t için f_{t+1} lazım)
+   3.  SONDAN başla, geriye doğru gel.       (fₜ için fₜ₊₁ lazım)
    4.  Her hücrede:  yol + sonraki etiket,   en küçüğü seç, YILDIZLA.</code></pre>
 <p>Bu kalıp sadece haritalarda çalışmıyor. Aynı dört satırla çözülen
 klasik problemler: makine yenileme (kaç yıl sonra değiştirmeli),
